@@ -18,6 +18,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class ReusableMethods {
@@ -354,7 +355,15 @@ public class ReusableMethods {
     }
 
 
+    public static String randomPhone() {
+        Random random = new Random();
+        String sayi1 = Integer.toString(random.nextInt(899) + 100);
+        String sayi2 = Integer.toString(random.nextInt(899) + 100);
+        String sayi3 = Integer.toString(random.nextInt(8999) + 1000);
+        String phone = sayi1 + "-" + sayi2 + "-" + sayi3;
+        return phone;
 
+    }
 
 
 }
