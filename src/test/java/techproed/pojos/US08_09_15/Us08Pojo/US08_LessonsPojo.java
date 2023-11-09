@@ -1,16 +1,16 @@
-package techproed.pojos.US08_09_15;
+package techproed.pojos.US08_09_15.Us08Pojo;
 
 import java.io.Serializable;
 
-public class LessonsPojo implements Serializable {
+public class US08_LessonsPojo implements Serializable {
 	private boolean compulsory;
 	private String creditScore;
 	private String lessonName;
 
-	public LessonsPojo() {
+	public US08_LessonsPojo() {
 	}
 
-	public LessonsPojo(boolean compulsory, String creditScore, String lessonName) {
+	public US08_LessonsPojo(boolean compulsory, String creditScore, String lessonName) {
 		this.compulsory = compulsory;
 		this.creditScore = creditScore;
 		this.lessonName = lessonName;
