@@ -1,7 +1,10 @@
 package techproed.pojos.US04_05_16;
 
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
+@JsonIgnoreProperties (ignoreUnknown = true)
 public class DeanPostPojo implements Serializable {
 	private String birthDay;
 	private String birthPlace;
