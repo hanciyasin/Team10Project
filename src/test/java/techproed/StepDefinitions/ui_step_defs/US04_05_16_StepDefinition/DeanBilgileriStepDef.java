@@ -15,7 +15,12 @@ import static techproed.utilities.ReusableMethods.*;
 public class DeanBilgileriStepDef {
 
     AdminManagementPage adminManagementPage = new AdminManagementPage();
-    Faker faker = new Faker();
+    public static Faker faker = new Faker();
+    public static String fakeName = faker.lorem().word();
+    public static String fakeSurName = faker.lorem().word();
+    public static String fakeBirtPlace = faker.lorem().word();
+    public static String fakePhone = threeDigitNumber() + "-" + threeDigitNumber() + "-" + fourDigitNumber();
+    public static String fakeSSN = threeDigitNumber() + "-" + twoDigitNumber() + "-" + fourDigitNumber();
 
     @And("sayfada scrol yapilir")
     public void sayfadaScrolYapilir() {
@@ -59,7 +64,7 @@ public class DeanBilgileriStepDef {
         ReusableMethods.bekle(2);
         ReusableMethods.click(adminManagementPage.deanListNameEditButtonDd);
         ReusableMethods.clearJS(adminManagementPage.deanListNameEditButtonDd);
-        adminManagementPage.deanListNameEditButtonDd.sendKeys(faker.lorem().word());
+        adminManagementPage.deanListNameEditButtonDd.sendKeys(fakeName);
     }
 
     @And("surname bilgisini gunceller")
@@ -67,7 +72,7 @@ public class DeanBilgileriStepDef {
         ReusableMethods.bekle(2);
         ReusableMethods.click(adminManagementPage.deanListSurnameEditButtonDd);
         ReusableMethods.clearJS(adminManagementPage.deanListSurnameEditButtonDd);
-        adminManagementPage.deanListSurnameEditButtonDd.sendKeys(faker.lorem().word());
+        adminManagementPage.deanListSurnameEditButtonDd.sendKeys(fakeSurName);
     }
 
     @And("birthplace bilgisini gunceller")
@@ -75,7 +80,7 @@ public class DeanBilgileriStepDef {
         ReusableMethods.bekle(2);
         ReusableMethods.click(adminManagementPage.deanListBirthPlaceEditButtonDd);
         ReusableMethods.clearJS(adminManagementPage.deanListBirthPlaceEditButtonDd);
-        adminManagementPage.deanListBirthPlaceEditButtonDd.sendKeys(faker.lorem().word());
+        adminManagementPage.deanListBirthPlaceEditButtonDd.sendKeys(fakeBirtPlace);
     }
 
     @And("gender bilgisini gunceller")
@@ -97,7 +102,7 @@ public class DeanBilgileriStepDef {
         ReusableMethods.bekle(2);
         ReusableMethods.click(adminManagementPage.deanListPhoneEditButtonDd);
         ReusableMethods.clearJS(adminManagementPage.deanListPhoneEditButtonDd);
-        adminManagementPage.deanListPhoneEditButtonDd.sendKeys(threeDigitNumber() + "-" + threeDigitNumber() + "-" + fourDigitNumber());
+        adminManagementPage.deanListPhoneEditButtonDd.sendKeys(fakePhone);
     }
 
     @And("ssn bilgisini gunceller")
@@ -105,7 +110,8 @@ public class DeanBilgileriStepDef {
         ReusableMethods.bekle(2);
         ReusableMethods.click(adminManagementPage.deanListSSNEditButtonDd);
         ReusableMethods.clearJS(adminManagementPage.deanListSSNEditButtonDd);
-        adminManagementPage.deanListSSNEditButtonDd.sendKeys(threeDigitNumber() + "-" + twoDigitNumber() + "-" + fourDigitNumber());
+
+        adminManagementPage.deanListSSNEditButtonDd.sendKeys(fakeSSN);
     }
 
     @And("username bilgisini gunceller")
@@ -128,6 +134,8 @@ public class DeanBilgileriStepDef {
         adminManagementPage.deanListEditSubmitButtonDd.click();
     }
 
+    /*
+
     @And("son sayfaya gider")
     public void sonSayfayaGider() {
         ReusableMethods.scrollEnd();
@@ -137,8 +145,6 @@ public class DeanBilgileriStepDef {
         adminManagementPage.sonSayfOkTusuDd.click();
         ReusableMethods.bekle(2);
         ReusableMethods.scrollUpJs();
+ */
 
-
-
-    }
 }
