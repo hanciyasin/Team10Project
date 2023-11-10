@@ -1,15 +1,15 @@
-package techproed.pojos.US08_09_15.US15Pojo.pozitif;
+package techproed.pojos.US13_US14;
 
+import java.util.List;
 import java.io.Serializable;
 
-public class US15_PozitifPojo implements Serializable {
-	private int advisorTeacherId;
+public class TeacherRegisterPostpojo implements Serializable {
 	private String birthDay;
 	private String birthPlace;
 	private String email;
-	private String fatherName;
 	private String gender;
-	private String motherName;
+	private String isAdvisorTeacher;
+	private List<Integer> lessonsIdList;
 	private String name;
 	private String password;
 	private String phoneNumber;
@@ -17,17 +17,16 @@ public class US15_PozitifPojo implements Serializable {
 	private String surname;
 	private String username;
 
-	public US15_PozitifPojo() {
+	public TeacherRegisterPostpojo() {
 	}
 
-	public US15_PozitifPojo(int advisorTeacherId, String birthDay, String birthPlace, String email, String fatherName, String gender, String motherName, String name, String password, String phoneNumber, String ssn, String surname, String username) {
-		this.advisorTeacherId = advisorTeacherId;
+	public TeacherRegisterPostpojo(String birthDay, String birthPlace, String email, String gender, String isAdvisorTeacher, List<Integer> lessonsIdList, String name, String password, String phoneNumber, String ssn, String surname, String username) {
 		this.birthDay = birthDay;
 		this.birthPlace = birthPlace;
 		this.email = email;
-		this.fatherName = fatherName;
 		this.gender = gender;
-		this.motherName = motherName;
+		this.isAdvisorTeacher = isAdvisorTeacher;
+		this.lessonsIdList = lessonsIdList;
 		this.name = name;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
@@ -36,12 +35,7 @@ public class US15_PozitifPojo implements Serializable {
 		this.username = username;
 	}
 
-	public void setAdvisorTeacherId(int advisorTeacherId){
-		this.advisorTeacherId = advisorTeacherId;
-	}
-
-	public int getAdvisorTeacherId(){
-		return advisorTeacherId;
+	public TeacherRegisterPostpojo(String birthDay, String newYork, String mail, String female, String aFalse, String s, String suman, String password, String phoneNumber, String ssn, String asli, String bsumansari99) {
 	}
 
 	public void setBirthDay(String birthDay){
@@ -68,14 +62,6 @@ public class US15_PozitifPojo implements Serializable {
 		return email;
 	}
 
-	public void setFatherName(String fatherName){
-		this.fatherName = fatherName;
-	}
-
-	public String getFatherName(){
-		return fatherName;
-	}
-
 	public void setGender(String gender){
 		this.gender = gender;
 	}
@@ -84,12 +70,20 @@ public class US15_PozitifPojo implements Serializable {
 		return gender;
 	}
 
-	public void setMotherName(String motherName){
-		this.motherName = motherName;
+	public void setIsAdvisorTeacher(String isAdvisorTeacher){
+		this.isAdvisorTeacher = isAdvisorTeacher;
 	}
 
-	public String getMotherName(){
-		return motherName;
+	public String getIsAdvisorTeacher(){
+		return isAdvisorTeacher;
+	}
+
+	public void setLessonsIdList(List<Integer> lessonsIdList){
+		this.lessonsIdList = lessonsIdList;
+	}
+
+	public List<Integer> getLessonsIdList(){
+		return lessonsIdList;
 	}
 
 	public void setName(String name){
@@ -143,14 +137,13 @@ public class US15_PozitifPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"PozitifPojo{" + 
-			"advisorTeacherId = '" + advisorTeacherId + '\'' + 
-			",birthDay = '" + birthDay + '\'' + 
+			"TeacherRegisterPostpojo{" + 
+			"birthDay = '" + birthDay + '\'' + 
 			",birthPlace = '" + birthPlace + '\'' + 
 			",email = '" + email + '\'' + 
-			",fatherName = '" + fatherName + '\'' + 
 			",gender = '" + gender + '\'' + 
-			",motherName = '" + motherName + '\'' + 
+			",isAdvisorTeacher = '" + isAdvisorTeacher + '\'' + 
+			",lessonsIdList = '" + lessonsIdList + '\'' + 
 			",name = '" + name + '\'' + 
 			",password = '" + password + '\'' + 
 			",phoneNumber = '" + phoneNumber + '\'' + 

@@ -1,10 +1,10 @@
 Feature: US03 Contact Message API Test
 
   Scenario Outline: Mesaj post ve kontrol etme
-    Given Kullanici path params olusturur Contact
-    Then  Kullanici expected data olusturur "<email>" "<message>" "<name>" "<subject>"
-    When  Kullanici request gonderir response alir Contact
-    And   Kullanici dogrulama yapar Contact Pozitif
+    Given Contact Message save icin URL duzenlenir.
+    Then  Contact Message save icin payload olusturulur.
+    When  Contact Message save icin Post request gonderilir ve response alinir.
+    And   Contact Message Post sonrasi gelen response dogrulanir.
 
     Examples:
       | email | message | name | subject |

@@ -1,4 +1,4 @@
-package techproed.pojos.US08_09_15.US15Pojo.pozitif;
+package techproed.pojos.US08_09_15.US15Pojo;
 
 import java.io.Serializable;
 
