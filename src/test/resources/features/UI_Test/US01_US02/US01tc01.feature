@@ -1,4 +1,4 @@
-
+@US01_tc01
   Feature: aday öğrenci oluşturma
 
    @REGİSTER
