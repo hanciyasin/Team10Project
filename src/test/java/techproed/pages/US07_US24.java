@@ -9,7 +9,7 @@ public class US07_US24 {
     public US07_US24() {
         PageFactory.initElements(Driver.getDriver(),this);}
 
-    //US07'S LOCATES
+    //US24'S LOCATES
 
     @FindBy(xpath= "//*[@class='header_link ms-2']")
     public WebElement iremLoginElement;
