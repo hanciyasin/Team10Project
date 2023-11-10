@@ -1,8 +1,9 @@
 package techproed.pojos.US07_24;
 
 import java.io.Serializable;
+import java.util.List;
 
-public class TeacherPostPojoByAdmin implements Serializable {
+public class US24_TeacherPostPojoByAdmin implements Serializable {
 
     private String name;
     private String surname;
@@ -12,9 +13,13 @@ public class TeacherPostPojoByAdmin implements Serializable {
     private String ssn;
     private String userName;
     private String password;
+
+
     private String dateOfBirth;
 
-    public TeacherPostPojoByAdmin(String name, String surname, String birthPlace, String email, String phone, String ssn, String userName, String password, String dateOfBirth) {
+    private List<String> lessonIdLıst;
+
+    public US24_TeacherPostPojoByAdmin(String name, String surname, String birthPlace, String email, String phone, String ssn, String userName, String password, String dateOfBirth, List<String> lessonIdLıst) {
         this.name = name;
         this.surname = surname;
         this.birthPlace = birthPlace;
@@ -24,6 +29,7 @@ public class TeacherPostPojoByAdmin implements Serializable {
         this.userName = userName;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
+        this.lessonIdLıst = lessonIdLıst;
     }
 
     public String getName() {
@@ -98,9 +104,17 @@ public class TeacherPostPojoByAdmin implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public List<String> getLessonIdLıst() {
+        return lessonIdLıst;
+    }
+
+    public void setLessonIdLıst(List<String> lessonIdLıst) {
+        this.lessonIdLıst = lessonIdLıst;
+    }
+
     @Override
     public String toString() {
-        return "TeacherPostPojoByAdmin{" +
+        return "US24_TeacherPostPojoByAdmin{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthPlace='" + birthPlace + '\'' +
@@ -110,6 +124,8 @@ public class TeacherPostPojoByAdmin implements Serializable {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", lessonIdLıst=" + lessonIdLıst +
                 '}';
     }
 }
+
