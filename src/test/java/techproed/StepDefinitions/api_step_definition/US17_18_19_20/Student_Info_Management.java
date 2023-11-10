@@ -24,6 +24,8 @@ public class Student_Info_Management {
     ResponsePojo actualData;
 
     int userId;
+    int page = 1;
+    int size = 10;
 
 
     @Given("Not verme icin URL duzenlenir")
@@ -46,8 +48,6 @@ public class Student_Info_Management {
         actualData = response.as(ResponsePojo.class);
 
 
-        userId = actualData.getObject().getId();
-
     }
 
     @And("Not verme icin gelen Response body dogrulanir")
@@ -60,31 +60,23 @@ public class Student_Info_Management {
         assertEquals(payload.getMidtermExam(),actualData.getObject().getMidtermExam());
         assertEquals(payload.getStudentId(),actualData.getObject().getStudentResponse().getUserId());
 
+
+
     }
 
-    @Given("Kayitli ogrenci not bilgisinin ID nosu alinir")
-    public void kayitliOgrenciNotBilgisininIDNosuAlinir() {
-        userId = actualData.getObject().getId();
-    }
 
     @And("GetByStudentId icin URL duzenlenir")
     public void getbystudentıdIcinURLDuzenlenir() {
-        //https://managementonschools.com/app/studentInfo/getByStudentId/1
         setUp(ConfigReader.getProperty("glcnTeacherName"),ConfigReader.getProperty("glcnTeacherSifre"));
-        spec.pathParams("first","studentInfo","second","getByStudentId","third",userId);
+        //https://managementonschools.com/app/studentInfo/getAllByStudent?page=1&size=1
+        spec.pathParams("first","studentInfo","second","getAllByStudent").
+                queryParams("page",1,"size",10);
 
 
-    }
+        response = given(spec).when().get("{first}/{second}");
+        response.prettyPrint();
+        actualData = response.as(ResponsePojo.class);
 
-    @And("GetByStudentId icin beklenen veriler duzenlenir")
-    public void getbystudentıdIcinBeklenenVerilerDuzenlenir() {
-    }
 
-    @When("GetByStudentId icin POST Request gonderilir ve Reponse alinir")
-    public void getbystudentıdIcinPOSTRequestGonderilirVeReponseAlinir() {
-    }
-
-    @And("GetByStudentId icin gelen response body dogrulanir")
-    public void getbystudentıdIcinGelenResponseBodyDogrulanir() {
     }
 }
