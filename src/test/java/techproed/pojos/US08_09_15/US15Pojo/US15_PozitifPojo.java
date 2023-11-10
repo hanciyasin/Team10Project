@@ -1,14 +1,15 @@
-package techproed.pojos.US04_05_16;
-
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+package techproed.pojos.US08_09_15.US15Pojo;
 
 import java.io.Serializable;
 
-@JsonIgnoreProperties (ignoreUnknown = true)
-public class DeanPostPojo implements Serializable {
+public class US15_PozitifPojo implements Serializable {
+	private int advisorTeacherId;
 	private String birthDay;
 	private String birthPlace;
+	private String email;
+	private String fatherName;
 	private String gender;
+	private String motherName;
 	private String name;
 	private String password;
 	private String phoneNumber;
@@ -16,19 +17,31 @@ public class DeanPostPojo implements Serializable {
 	private String surname;
 	private String username;
 
-	public DeanPostPojo() {
+	public US15_PozitifPojo() {
 	}
 
-	public DeanPostPojo(String birthDay, String birthPlace, String gender, String name, String password, String phoneNumber, String ssn, String surname, String username) {
+	public US15_PozitifPojo(int advisorTeacherId, String birthDay, String birthPlace, String email, String fatherName, String gender, String motherName, String name, String password, String phoneNumber, String ssn, String surname, String username) {
+		this.advisorTeacherId = advisorTeacherId;
 		this.birthDay = birthDay;
 		this.birthPlace = birthPlace;
+		this.email = email;
+		this.fatherName = fatherName;
 		this.gender = gender;
+		this.motherName = motherName;
 		this.name = name;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
 		this.ssn = ssn;
 		this.surname = surname;
 		this.username = username;
+	}
+
+	public void setAdvisorTeacherId(int advisorTeacherId){
+		this.advisorTeacherId = advisorTeacherId;
+	}
+
+	public int getAdvisorTeacherId(){
+		return advisorTeacherId;
 	}
 
 	public void setBirthDay(String birthDay){
@@ -47,12 +60,36 @@ public class DeanPostPojo implements Serializable {
 		return birthPlace;
 	}
 
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public String getEmail(){
+		return email;
+	}
+
+	public void setFatherName(String fatherName){
+		this.fatherName = fatherName;
+	}
+
+	public String getFatherName(){
+		return fatherName;
+	}
+
 	public void setGender(String gender){
 		this.gender = gender;
 	}
 
 	public String getGender(){
 		return gender;
+	}
+
+	public void setMotherName(String motherName){
+		this.motherName = motherName;
+	}
+
+	public String getMotherName(){
+		return motherName;
 	}
 
 	public void setName(String name){
@@ -106,10 +143,14 @@ public class DeanPostPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"DeanPostPojo{" + 
-			"birthDay = '" + birthDay + '\'' + 
+			"PozitifPojo{" + 
+			"advisorTeacherId = '" + advisorTeacherId + '\'' + 
+			",birthDay = '" + birthDay + '\'' + 
 			",birthPlace = '" + birthPlace + '\'' + 
+			",email = '" + email + '\'' + 
+			",fatherName = '" + fatherName + '\'' + 
 			",gender = '" + gender + '\'' + 
+			",motherName = '" + motherName + '\'' + 
 			",name = '" + name + '\'' + 
 			",password = '" + password + '\'' + 
 			",phoneNumber = '" + phoneNumber + '\'' + 

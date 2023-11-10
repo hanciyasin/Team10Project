@@ -1,6 +1,7 @@
 package techproed.StepDefinitions.ui_step_defs.US13_US14_StepDefinitions;
 
 import com.github.javafaker.Faker;
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

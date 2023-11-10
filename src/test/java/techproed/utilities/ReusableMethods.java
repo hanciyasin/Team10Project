@@ -354,7 +354,6 @@ public class ReusableMethods {
         return birthPlace;
     }
 
-
     public static String randomPhone() {
         Random random = new Random();
         String sayi1 = Integer.toString(random.nextInt(899) + 100);
@@ -364,8 +363,15 @@ public class ReusableMethods {
         return phone;
 
     }
+    public static String randomSsn() {
+        Random random = new Random();
+        String sayi1 = Integer.toString(random.nextInt(899) + 100);
+        String sayi2 = Integer.toString(random.nextInt(89) + 10);
+        String sayi3 = Integer.toString(random.nextInt(8999) + 1000);
+        String ssn = sayi1 + "-" + sayi2 + "-" + sayi3;
+        return ssn;
 
-
+    }
 }
 
 
