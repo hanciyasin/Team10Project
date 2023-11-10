@@ -8,6 +8,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import techproed.pojos.US04_05_16.DeanPostPojo;
 import techproed.pojos.US04_05_16.ObjectPojo;
+import techproed.pojos.US04_05_16.Put_Dean.PutDeanPojo;
+import techproed.pojos.US04_05_16.Put_Dean.PutResponsePojo;
 import techproed.pojos.US04_05_16.ResponsePojo;
 import techproed.utilities.ConfigReader;
 
@@ -21,12 +23,14 @@ import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
 public class DeanManagementAPI {
 
-    DeanPostPojo payload;
-    Response response;
-    ResponsePojo actualData;
-    int userId;
+    public static  DeanPostPojo payload;
+    public static Response response;
+    public static ResponsePojo actualData;
+    public static int userId;
     public static ObjectPojo object;
     public static ResponsePojo expectedData;
+    public static PutDeanPojo expectedDataPut;
+    public static PutResponsePojo actualDataPut;
 
 
     @Given("Dean Save icin URL duzenlenir")
@@ -37,7 +41,8 @@ public class DeanManagementAPI {
 
     @And("Dean Save icin payload duzenlenir")
     public void deanSaveIcinPayloadDuzenlenir() {
-      payload = new DeanPostPojo("1975-05-05", fakeBirtPlace,"MALE",fakeName,"Dilek143",fakePhone,fakeSSN,fakeSurName,"adminsemih" );
+      payload = new DeanPostPojo("1975-05-05", fakeBirtPlace,"MALE",fakeName,
+              "Dilek143",fakePhone,fakeSSN,fakeSurName,"adminsemih" );
     }
 
 
@@ -112,17 +117,48 @@ public class DeanManagementAPI {
 
     @Given("Kayitli Dean hesabi icin put request hazirligi yapilir")
     public void kayitliDeanHesabiIcinPutRequestHazirligiYapilir() {
+       //https://managementonschools.com/app/dean/update/1
+        spec.pathParams("first","dean","second","update","third",userId);
     }
 
     @And("Update edilecek dean bilgileri hazirlanir")
     public void updateEdilecekDeanBilgileriHazirlanir() {
+        expectedDataPut = new PutDeanPojo("1992-08-14","zonguldak","FEMALE"
+                ,"dilek","Dilek143","465-676-9292","523-34-8765","ak","dilekadmn");
     }
 
     @When("Kayitli Dean id ile editlenir")
     public void kayitliDeanIdIleEditlenir() {
+      response =  given(spec).body(expectedDataPut).when().put("{first}/{second}/{third}");
+      actualDataPut =response.as(PutResponsePojo.class);
     }
 
     @Then("Guncel Dean bilgileri dogrulanir")
     public void guncelDeanBilgileriDogrulanir() {
+        assertEquals(expectedDataPut.getBirthDay(),actualDataPut.getObject().getBirthDay());
+        assertEquals(expectedDataPut.getGender(),actualDataPut.getObject().getGender());
+        assertEquals(expectedDataPut.getName(),actualDataPut.getObject().getName());
+        assertEquals(expectedDataPut.getSsn(),actualDataPut.getObject().getSsn());
+        assertEquals(expectedDataPut.getPhoneNumber(),actualDataPut.getObject().getPhoneNumber());
+        assertEquals(expectedDataPut.getSurname(),actualDataPut.getObject().getSurname());
+        assertEquals(expectedDataPut.getBirthPlace(),actualDataPut.getObject().getBirthPlace());
+        assertEquals(expectedDataPut.getUsername(),actualDataPut.getObject().getUsername());
+    }
+
+    @Given("Kayitli Dean hesabi icin delete request hazirligi yapilir")
+    public void kayitliDeanHesabiIcinDeleteRequestHazirligiYapilir() {
+        //https://managementonschools.com/app/dean/delete/1
+        spec.pathParams("first","dean","second","delete","third",userId);
+    }
+
+    @When("Kayitli Dean hesabi silinir")
+    public void kayitliDeanHesabiSilinir() {
+        response = given(spec).when().delete("{first}/{second}/{third}");
+    }
+
+    @Then("Dean hesabi silindigi dogrulanir")
+    public void deanHesabiSilindigiDogrulanir() {
+        String expectedData = "Dean Deleted";
+        assertEquals(expectedData,response.jsonPath().getString("message"));
     }
 }
