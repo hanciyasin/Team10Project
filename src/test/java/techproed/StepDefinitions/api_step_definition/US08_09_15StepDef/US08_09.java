@@ -5,9 +5,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
+import org.openqa.selenium.WebElement;
 import techproed.pojos.US08_09_15.Us08Pojo.US08_LessonsPojo;
+import techproed.pojos.US08_09_15.Us08Pojo.US08_ObjectPojo;
 import techproed.pojos.US08_09_15.Us08Pojo.US08_ResponsePojo;
 import techproed.utilities.ConfigReader;
+import techproed.utilities.ReusableMethods;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -20,7 +26,9 @@ public class US08_09 {
     US08_LessonsPojo payload;
     Response response;
     US08_ResponsePojo actualData;
+    public static String bylessonid;
     public static int lessonId;
+
 
     @Given("lesson save icin url duzenlenir")
     public void lessonSaveIcinUrlDuzenlenir() {
@@ -75,5 +83,33 @@ public class US08_09 {
     public void lessonSilindigiDogrulanır() {
         String expectedData = "Lesson Deleted";
         assertEquals(expectedData,response.jsonPath().getString("message"));
+    }
+
+
+    @Given("lessons listesi alinir")
+    public void lessonsListesiAlinir() {
+        setUp(ConfigReader.getProperty("VDUserName"), ConfigReader.getProperty("VDPassword"));
+        spec.pathParams("first", "lessons", "second", "getAll");
+        response = given(spec).when().get("{first}/{second}");
+        System.out.println("Ders listeleri alındı");
+    }
+
+
+    @Given("lesson id ile ders kontrol edilir")
+    public void lessonIdIleDersKontrolEdilir() {
+        ReusableMethods.bekle(3);
+        //https://managementonschools.com/app/lessons/getAllLessonByLessonId?lessonId=1255
+        bylessonid= "getAllLessonByLessonId"+lessonId;
+        System.out.println(bylessonid);
+        setUp(ConfigReader.getProperty("VDUserName"), ConfigReader.getProperty("VDPassword"));
+        spec.pathParams("first", "lessons", "second","getAllLessonByLessonId?lessonId=" );
+        response = given(spec).when().get("{first}/{second}");
+        response.prettyPrint();
+
+    }
+
+    @Given("lesson name ile ders kontrol edilir")
+    public void lessonNameIleDersKontrolEdilir() {
+        //https://managementonschools.com/app/lessons/getLessonByName?lessonName=sosyoloji
     }
 }

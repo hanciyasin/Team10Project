@@ -1,4 +1,4 @@
-package techproed.StepDefinitions.ui_step_defs;
+package techproed.StepDefinitions.ui_step_defs.US08_09_15;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
