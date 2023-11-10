@@ -5,9 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import techproed.pojos.US08_09_15.US15Pojo.pozitif.DeletePojo;
-import techproed.pojos.US08_09_15.US15Pojo.pozitif.US15_PozitifPojo;
-import techproed.pojos.US08_09_15.US15Pojo.pozitif.US15_ResponsePojo;
+import techproed.pojos.US08_09_15.US15Pojo.DeletePojo;
+import techproed.pojos.US08_09_15.US15Pojo.US15_PozitifPojo;
+import techproed.pojos.US08_09_15.US15Pojo.US15_ResponsePojo;
 import techproed.utilities.ConfigReader;
 
 import static io.restassured.RestAssured.given;
