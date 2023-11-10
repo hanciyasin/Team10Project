@@ -5,16 +5,21 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import techproed.pojos.US13_US14.TeacherSavepojo;
+import techproed.pojos.US13_US14.TeacherRegisterPostpojo;
 import techproed.utilities.ConfigReader;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 import static io.restassured.RestAssured.given;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
-public class Teacher_Controller_StepDef {
-    Response response;
-    TeacherSavepojo payload;
+public class Teacher_Controller_Step_Def {
+
+    TeacherRegisterPostpojo payload;
 
     @Given("Teacher kaydetmek icin URL duzenlenir")
     public void teacherKaydetmekIcinURLDuzenlenir() {
@@ -24,14 +29,35 @@ public class Teacher_Controller_StepDef {
 
     @Then("Teacher kaydi icin payload duzenlenir")
     public void teacherKaydiIcinPayloadDuzenlenir() {
-        payload = new TeacherSavepojo(1700,"Elifdoo011","Ali","Kaya","1983-01-06","777-77-7773","California","631-229-6255","MALE","Alidd@gmail.com",false);
+        payload = new TeacherRegisterPostpojo("1976-02-06","New York","Turk102@gmail.com","FEMALE","false","2106,1375,1865","suman","959654Aabb","526-786-5584","343-19-3073","Asli","Bsumansari99");
+
+        /*
+        {
+  "birthDay": "1976-02-06",
+  "birthPlace": "New York",
+  "email": "Turk102@gmail.com",
+  "gender": "FEMALE",
+  "isAdvisorTeacher": "false",
+  "lessonsIdList": [
+    2106,1375,1865
+  ],
+  "name": "suman",
+  "password": "959654Aabb",
+  "phoneNumber": "526-786-5584",
+  "ssn": "343-19-3073",
+  "surname": "Asli",
+  "username": "Bsumansari99"
+}
+         */
+
+
 
     }
 
     @When("Teacher kaydi icin Post request gonderilir ve response alinir")
     public void teacherKaydiIcinPostRequestGonderilirVeResponseAlinir() {
-        response = given(spec).body(payload).when().post("{first}/{second}");
-        response.prettyPrint();
+       Response response = given(spec).body(payload).when().post("{first}/{second}");
+       response.prettyPrint();
     }
 
     @Then("status codun {int} oldugu dogrulanir")
