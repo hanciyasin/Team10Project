@@ -2,7 +2,7 @@ package techproed.pojos.US17_18_19_20;
 
 import java.io.Serializable;
 
-public class StudentResponsePojo implements Serializable {
+public class GetStudentResponsePojo implements Serializable {
 	private int userId;
 	private String username;
 	private String name;
@@ -17,10 +17,10 @@ public class StudentResponsePojo implements Serializable {
 	private String email;
 	private boolean active;
 
-	public StudentResponsePojo() {
+	public GetStudentResponsePojo() {
 	}
 
-	public StudentResponsePojo(int userId, String username, String name, String surname, String birthDay, String birthPlace, String phoneNumber, String gender, int studentNumber, String motherName, String fatherName, String email, boolean active) {
+	public GetStudentResponsePojo(int userId, String username, String name, String surname, String birthDay, String birthPlace, String phoneNumber, String gender, int studentNumber, String motherName, String fatherName, String email, boolean active) {
 		this.userId = userId;
 		this.username = username;
 		this.name = name;
@@ -143,7 +143,7 @@ public class StudentResponsePojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"StudentResponsePojo{" + 
+			"StudentResponsejava{" + 
 			"userId = '" + userId + '\'' + 
 			",username = '" + username + '\'' + 
 			",name = '" + name + '\'' + 
