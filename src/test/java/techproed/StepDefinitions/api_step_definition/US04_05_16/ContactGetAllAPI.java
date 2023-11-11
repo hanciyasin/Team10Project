@@ -18,12 +18,12 @@ import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
 public class ContactGetAllAPI {
 
-    ContactGetAllPostPojo expectedData;
-    Response response;
+    public static ContactGetAllPostPojo expectedData;
+    public static Response response;
     public static String emailContact;
     public static String emailPost;
-    ContactGetResponsePojo actualdata;
-    ContactGetAllGetResponse actualDataGet;
+    public static ContactGetResponsePojo actualdata;
+    public static ContactGetAllGetResponse actualDataGet;
 
     @Given("Mesaj eklemek icin post request hazirligi yapilir")
     public void mesajEklemekIcinPostRequestHazirligiYapilir() {

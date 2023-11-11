@@ -1,7 +1,10 @@
 package techproed.pojos.US04_05_16.ViceDean;
 
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
+@JsonIgnoreProperties( ignoreUnknown = true)
 public class ContactGetAllPostPojo implements Serializable {
 	private String email;
 	private String message;

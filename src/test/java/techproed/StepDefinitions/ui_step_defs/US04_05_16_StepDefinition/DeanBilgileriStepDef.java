@@ -16,11 +16,13 @@ public class DeanBilgileriStepDef {
 
     AdminManagementPage adminManagementPage = new AdminManagementPage();
     public static Faker faker = new Faker();
+
     public static String fakeName = faker.lorem().word();
     public static String fakeSurName = faker.lorem().word();
     public static String fakeBirtPlace = faker.lorem().word();
     public static String fakePhone = threeDigitNumber() + "-" + threeDigitNumber() + "-" + fourDigitNumber();
     public static String fakeSSN = threeDigitNumber() + "-" + twoDigitNumber() + "-" + fourDigitNumber();
+    public static String fakeDate = "0" + oneDigitNumber() + "0" + oneDigitNumber() + "1999";
 
     @And("sayfada scrol yapilir")
     public void sayfadaScrolYapilir() {
@@ -94,7 +96,8 @@ public class DeanBilgileriStepDef {
         ReusableMethods.bekle(2);
         ReusableMethods.click(adminManagementPage.deanListDateOfBirthEditButtonDd);
         ReusableMethods.clearJS(adminManagementPage.deanListDateOfBirthEditButtonDd);
-        adminManagementPage.deanListDateOfBirthEditButtonDd.sendKeys("0" + oneDigitNumber() + "0" + oneDigitNumber() + "1999");
+
+        adminManagementPage.deanListDateOfBirthEditButtonDd.sendKeys(fakeDate);
     }
 
     @And("phone bilgisini gunceller")
