@@ -97,12 +97,10 @@ public class US08_09 {
 
     @Given("lesson id ile ders kontrol edilir")
     public void lessonIdIleDersKontrolEdilir() {
-        ReusableMethods.bekle(3);
+        ReusableMethods.bekle(1);
         //https://managementonschools.com/app/lessons/getAllLessonByLessonId?lessonId=1255
-        bylessonid= "getAllLessonByLessonId"+lessonId;
-        System.out.println(bylessonid);
         setUp(ConfigReader.getProperty("VDUserName"), ConfigReader.getProperty("VDPassword"));
-        spec.pathParams("first", "lessons", "second","getAllLessonByLessonId?lessonId=" );
+        spec.pathParams("first", "lessons", "second","getAllLessonByLessonId").queryParam("lessonId",lessonId);
         response = given(spec).when().get("{first}/{second}");
         response.prettyPrint();
 
@@ -110,6 +108,11 @@ public class US08_09 {
 
     @Given("lesson name ile ders kontrol edilir")
     public void lessonNameIleDersKontrolEdilir() {
+        ReusableMethods.bekle(1);
         //https://managementonschools.com/app/lessons/getLessonByName?lessonName=sosyoloji
+        setUp(ConfigReader.getProperty("VDUserName"), ConfigReader.getProperty("VDPassword"));
+        spec.pathParams("first", "lessons", "second","getLessonByName").queryParam("lessonName","sosyolojii");
+        response = given(spec).when().get("{first}/{second}");
+        response.prettyPrint();
     }
 }

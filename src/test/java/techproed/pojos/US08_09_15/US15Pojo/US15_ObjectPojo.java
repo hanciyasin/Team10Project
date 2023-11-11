@@ -22,6 +22,30 @@ public class US15_ObjectPojo implements Serializable {
 	private String email;
 	private boolean active;
 
+	public US15_ObjectPojo() {
+	}
+
+	public US15_ObjectPojo(int id, String username, String ssn, String name, String surname, String birthDay, String birthPlace, String phoneNumber, String gender, String motherName, String fatherName, int studentNumber, int advisorTeacherId, String advisorTeacherName, String advisorTeacherSurname, String advisorTeacherEmail, String email, boolean active) {
+		this.id = id;
+		this.username = username;
+		this.ssn = ssn;
+		this.name = name;
+		this.surname = surname;
+		this.birthDay = birthDay;
+		this.birthPlace = birthPlace;
+		this.phoneNumber = phoneNumber;
+		this.gender = gender;
+		this.motherName = motherName;
+		this.fatherName = fatherName;
+		this.studentNumber = studentNumber;
+		this.advisorTeacherId = advisorTeacherId;
+		this.advisorTeacherName = advisorTeacherName;
+		this.advisorTeacherSurname = advisorTeacherSurname;
+		this.advisorTeacherEmail = advisorTeacherEmail;
+		this.email = email;
+		this.active = active;
+	}
+
 	public void setId(int id){
 		this.id = id;
 	}

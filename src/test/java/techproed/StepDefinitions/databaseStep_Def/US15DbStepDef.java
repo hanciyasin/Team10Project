@@ -5,6 +5,11 @@ import io.cucumber.java.en.Given;
 
 import java.sql.*;
 
+import static org.junit.Assert.assertEquals;
+import static techproed.StepDefinitions.api_step_definition.US08_09_15StepDef.US15Pozitif.expectedData;
+import static techproed.StepDefinitions.api_step_definition.US08_09_15StepDef.US15Pozitif.object;
+
+
 public class US15DbStepDef {
 
     Connection connection;
@@ -12,20 +17,29 @@ public class US15DbStepDef {
 
     @Given("Database'e bağlanır.")
     public void databaseEBağlanır() throws SQLException {
-        Connection connection = DriverManager.
-                getConnection("jdbc:postgresql://managementonschools.com:5432/school_management",
-                        " select_user", "43w5ijfso");
+        connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
     }
 
     @And("Aday öğrenci için sorgulama yapar.")
     public void adayÖğrenciIçinSorgulamaYapar() throws SQLException {
-        Statement statament = connection.createStatement();
-        resultset = statament.executeQuery("select * from student where username='Ak1234'");
+        Statement statement = connection.createStatement();
+        resultset = statement.executeQuery("select * from student where username='Student10Team'");
     }
 
     @And("Aday öğrenci için doğrulama yapar.")
     public void adayÖğrenciIçinDoğrulamaYapar() throws SQLException {
         resultset.next();
+        assertEquals(0,resultset.getInt("gender"));
+        assertEquals(object.getBirthDay(),resultset.getString("birth_day"));
+        assertEquals(object.getBirthPlace(),resultset.getString("birth_place"));
+        assertEquals(object.getName(),resultset.getString("name"));
+        assertEquals(object.getSsn(),resultset.getString("ssn"));
+        assertEquals(object.getSurname(),resultset.getString("surname"));
+        assertEquals(object.getUsername(),resultset.getString("username"));
+        assertEquals(object.getEmail(),resultset.getString("email"));
+        assertEquals(object.getFatherName(),resultset.getString("father_name"));
+        assertEquals(object.getMotherName(),resultset.getString("mother_name"));
+        assertEquals(object.getPhoneNumber(),resultset.getString("phone_number"));
 
     }
 }
