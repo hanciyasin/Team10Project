@@ -9,6 +9,17 @@ public class ContentGetResponse implements Serializable {
 	private String message;
 	private String date;
 
+	public ContentGetResponse() {
+	}
+
+	public ContentGetResponse(String name, String email, String subject, String message, String date) {
+		this.name = name;
+		this.email = email;
+		this.subject = subject;
+		this.message = message;
+		this.date = date;
+	}
+
 	public void setName(String name){
 		this.name = name;
 	}
