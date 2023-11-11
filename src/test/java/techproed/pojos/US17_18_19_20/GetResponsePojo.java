@@ -2,7 +2,7 @@ package techproed.pojos.US17_18_19_20;
 
 import java.io.Serializable;
 
-public class ObjectPojo implements Serializable {
+public class GetResponsePojo implements Serializable {
 	private int id;
 	private Object midtermExam;
 	private Object finalExam;
@@ -13,14 +13,14 @@ public class ObjectPojo implements Serializable {
 	private int creditScore;
 	private int educationTermId;
 	private Object average;
-	private StudentResponsePojo studentResponse;
+	private GetStudentResponsePojo studentResponse;
 	private boolean compulsory;
 	private String note;
 
-	public ObjectPojo() {
+	public GetResponsePojo() {
 	}
 
-	public ObjectPojo(int id, Object midtermExam, Object finalExam, int absentee, String infoNote, String lessonName, int lessonId, int creditScore, int educationTermId, Object average, StudentResponsePojo studentResponse, boolean compulsory, String note) {
+	public GetResponsePojo(int id, Object midtermExam, Object finalExam, int absentee, String infoNote, String lessonName, int lessonId, int creditScore, int educationTermId, Object average, GetStudentResponsePojo studentResponse, boolean compulsory, String note) {
 		this.id = id;
 		this.midtermExam = midtermExam;
 		this.finalExam = finalExam;
@@ -116,11 +116,11 @@ public class ObjectPojo implements Serializable {
 		return average;
 	}
 
-	public void setStudentResponse(StudentResponsePojo studentResponse){
+	public void setStudentResponse(GetStudentResponsePojo studentResponse){
 		this.studentResponse = studentResponse;
 	}
 
-	public StudentResponsePojo getStudentResponse(){
+	public GetStudentResponsePojo getStudentResponse(){
 		return studentResponse;
 	}
 
@@ -143,7 +143,7 @@ public class ObjectPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ObjectPojo{" + 
+			"GetResponsejava{" + 
 			"id = '" + id + '\'' + 
 			",midtermExam = '" + midtermExam + '\'' + 
 			",finalExam = '" + finalExam + '\'' + 
