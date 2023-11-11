@@ -14,9 +14,11 @@
 
     Scenario: US09 TC02 getAll Lesson By LessonId
       Given lesson id ile ders kontrol edilir
+      Then Status kodun 200 oldugu dogrulanır
 
     Scenario: US09 TC03 get Lesson By Name
       Given lesson name ile ders kontrol edilir
+      Then Status kodun 200 oldugu dogrulanır
 
 
     Scenario: US09 Vice Dean Ders Silme
