@@ -6,8 +6,7 @@ import io.cucumber.java.en.Given;
 import java.sql.*;
 
 import static org.junit.Assert.assertEquals;
-import static techproed.StepDefinitions.api_step_definition.US08_09_15StepDef.US15Pozitif.expectedData;
-import static techproed.StepDefinitions.api_step_definition.US08_09_15StepDef.US15Pozitif.object;
+import static techproed.StepDefinitions.api_step_definition.US08_09_15StepDef.US15Pozitif.*;
 
 
 public class US15DbStepDef {
@@ -30,16 +29,16 @@ public class US15DbStepDef {
     public void adayÖğrenciIçinDoğrulamaYapar() throws SQLException {
         resultset.next();
         assertEquals(0,resultset.getInt("gender"));
-        assertEquals(object.getBirthDay(),resultset.getString("birth_day"));
-        assertEquals(object.getBirthPlace(),resultset.getString("birth_place"));
+        assertEquals(object.getUsername(),resultset.getString("username"));
         assertEquals(object.getName(),resultset.getString("name"));
         assertEquals(object.getSsn(),resultset.getString("ssn"));
         assertEquals(object.getSurname(),resultset.getString("surname"));
-        assertEquals(object.getUsername(),resultset.getString("username"));
         assertEquals(object.getEmail(),resultset.getString("email"));
         assertEquals(object.getFatherName(),resultset.getString("father_name"));
         assertEquals(object.getMotherName(),resultset.getString("mother_name"));
         assertEquals(object.getPhoneNumber(),resultset.getString("phone_number"));
+        assertEquals(object.getBirthDay(),resultset.getString("birth_day"));
+        assertEquals(object.getBirthPlace(),resultset.getString("birth_place"));
 
     }
 }
