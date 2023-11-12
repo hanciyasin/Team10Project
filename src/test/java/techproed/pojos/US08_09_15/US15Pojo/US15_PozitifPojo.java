@@ -1,9 +1,11 @@
 package techproed.pojos.US08_09_15.US15Pojo;
 
-import java.io.Serializable;
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class US15_PozitifPojo implements Serializable {
-	private int advisorTeacherId;
+	private String advisorTeacherId;
 	private String birthDay;
 	private String birthPlace;
 	private String email;
@@ -20,7 +22,7 @@ public class US15_PozitifPojo implements Serializable {
 	public US15_PozitifPojo() {
 	}
 
-	public US15_PozitifPojo(int advisorTeacherId, String birthDay, String birthPlace, String email, String fatherName, String gender, String motherName, String name, String password, String phoneNumber, String ssn, String surname, String username) {
+	public US15_PozitifPojo(String advisorTeacherId, String birthDay, String birthPlace, String email, String fatherName, String gender, String motherName, String name, String password, String phoneNumber, String ssn, String surname, String username) {
 		this.advisorTeacherId = advisorTeacherId;
 		this.birthDay = birthDay;
 		this.birthPlace = birthPlace;
@@ -36,11 +38,11 @@ public class US15_PozitifPojo implements Serializable {
 		this.username = username;
 	}
 
-	public void setAdvisorTeacherId(int advisorTeacherId){
+	public void setAdvisorTeacherId(String advisorTeacherId){
 		this.advisorTeacherId = advisorTeacherId;
 	}
 
-	public int getAdvisorTeacherId(){
+	public String getAdvisorTeacherId(){
 		return advisorTeacherId;
 	}
 
@@ -143,7 +145,7 @@ public class US15_PozitifPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"PozitifPojo{" + 
+			"US15Pojo{" + 
 			"advisorTeacherId = '" + advisorTeacherId + '\'' + 
 			",birthDay = '" + birthDay + '\'' + 
 			",birthPlace = '" + birthPlace + '\'' + 
