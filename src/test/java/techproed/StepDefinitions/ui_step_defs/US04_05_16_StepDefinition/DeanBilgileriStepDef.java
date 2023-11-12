@@ -57,7 +57,7 @@ public class DeanBilgileriStepDef {
     @Then("Add Dean edit butonuna tiklar")
     public void addDeanEditButonunaTiklar() {
         Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN,Keys.PAGE_DOWN,Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN,Keys.PAGE_DOWN).perform();
         adminManagementPage.deanListEditButtonDd.click();
     }
 
