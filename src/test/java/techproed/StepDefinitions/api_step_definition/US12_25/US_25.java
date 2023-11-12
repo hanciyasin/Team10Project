@@ -43,15 +43,16 @@ public class US_25 {
     @When("Student eklemek icin post request gonderilir")
     public void student_eklemek_icin_post_request_gonderilir() {
         response = given(spec).body(expectedData).when().post("{first}/{second}");
+        response.prettyPrint();
         idStudent = response.jsonPath().getInt("object.id");
         System.out.println(idStudent);
         actualData = response.as(StudentPostResponse.class);
-        response.prettyPrint();
+
     }
 
     @When("Kayitli Student id ile cagirilir")
     public void kayitli_student_id_ile_cagirilir() {
-        setUp("AdminTeam15", "AdminTeam15");
+        setUp("AdminBatch171", "Batch171+");
         spec.pathParams("first", "students", "second", "getStudentById").queryParam("id", idStudent);
         Response response1 = given(spec).when().get("{first}/{second}");
         response1.prettyPrint();
@@ -79,7 +80,7 @@ public class US_25 {
 
     @Given("Studen eklemek icin delete request hazirligi yapilir")
     public void studenEklemekIcinDeleteRequestHazirligiYapilir() {
-        setUp("ViceDeanTeam15", "ViceDeanTeam15");
+        setUp("AdminBatch171", "Batch171+");
         spec.pathParams("first", "students", "second", "delete", "third", idStudent);
     }
 
