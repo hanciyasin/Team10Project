@@ -103,7 +103,7 @@ public class ObjectPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ObjectPojo{" + 
+			"ObjectPojo_US_03{" +
 			"userId = '" + userId + '\'' + 
 			",username = '" + username + '\'' + 
 			",name = '" + name + '\'' + 
