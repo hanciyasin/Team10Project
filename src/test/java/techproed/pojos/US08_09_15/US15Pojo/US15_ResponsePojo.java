@@ -40,7 +40,7 @@ public class US15_ResponsePojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ResponsePojo{" + 
+			"ResponsePojo_US_03{" +
 			"object = '" + object + '\'' + 
 			",message = '" + message + '\'' + 
 			"}";

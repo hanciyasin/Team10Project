@@ -195,7 +195,7 @@ public class US15_ObjectPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ObjectPojo{" + 
+			"ObjectPojo_US_03{" +
 			"id = '" + id + '\'' + 
 			",username = '" + username + '\'' + 
 			",ssn = '" + ssn + '\'' + 

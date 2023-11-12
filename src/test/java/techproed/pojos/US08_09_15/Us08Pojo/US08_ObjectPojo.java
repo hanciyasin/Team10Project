@@ -53,7 +53,7 @@ public class US08_ObjectPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ObjectPojo{" + 
+			"ObjectPojo_US_03{" +
 			"lessonId = '" + lessonId + '\'' + 
 			",lessonName = '" + lessonName + '\'' + 
 			",creditScore = '" + creditScore + '\'' + 
