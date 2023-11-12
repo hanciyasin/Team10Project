@@ -1,11 +1,17 @@
 package techproed.pojos.US08_09_15.US15Pojo;
 
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonProperty;
+
+
 import java.io.Serializable;
 
+
+
 public class US15_ResponsePojo implements Serializable {
+	@JsonProperty("id")
+	private String myId;
 	private US15_ObjectPojo object;
 	private String message;
-
 
 	public US15_ResponsePojo() {
 	}
@@ -31,7 +37,6 @@ public class US15_ResponsePojo implements Serializable {
 		return message;
 	}
 
-
 	@Override
  	public String toString(){
 		return 
@@ -39,8 +44,5 @@ public class US15_ResponsePojo implements Serializable {
 			"object = '" + object + '\'' + 
 			",message = '" + message + '\'' + 
 			"}";
-
-	}
-
-
+		}
 }

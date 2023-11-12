@@ -1,6 +1,5 @@
 package techproed.StepDefinitions.api_step_definition.US07_24;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,16 +7,14 @@ import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import techproed.pojos.US07_24.US24_ObjectPojo;
-import techproed.pojos.US07_24.US24_ResponsePojo;
-import techproed.pojos.US07_24.US24_TeacherPostPojoByAdmin;
+import techproed.pojos.US07_24.US24.US24_ObjectPojo;
+import techproed.pojos.US07_24.US24.US24_ResponsePojo;
+import techproed.pojos.US07_24.US24.US24_TeacherPostPojoByAdmin;
 import techproed.utilities.ConfigReader;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static techproed.StepDefinitions.ui_step_defs.US04_05_16_StepDefinition.DeanBilgileriStepDef.*;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
@@ -42,7 +39,7 @@ public class US24_TeacherManagementByAdminAPI {
     public void teacherSaveIcinURLDuzenlenir() {
        // setUp(ConfigReader.getProperty("manSchoolAdmin"),ConfigReader.getProperty("manSchoolAdminPass"));
 
-        setUp(ConfigReader.getProperty("AdminBatch171+"),ConfigReader.getProperty("Batch171+"));
+        setUp(ConfigReader.getProperty("TeacherSaveAdmin"),ConfigReader.getProperty("TeacherSaveAdminPass"));
         spec.pathParams("first","teachers","second","save");
     }
 

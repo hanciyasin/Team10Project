@@ -1,10 +1,8 @@
-package techproed.pojos.US08_09_15.US15Pojo;
-
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+package techproed.pojos.US17_18_19_20;
 
 import java.io.Serializable;
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class US15_ObjectPojo implements Serializable {
+
+public class MeetGetStudentsPojo implements Serializable {
 	private int id;
 	private String username;
 	private String ssn;
@@ -17,17 +15,13 @@ public class US15_ObjectPojo implements Serializable {
 	private String motherName;
 	private String fatherName;
 	private int studentNumber;
-	private int advisorTeacherId;
-	private String advisorTeacherName;
-	private String advisorTeacherSurname;
-	private String advisorTeacherEmail;
 	private String email;
 	private boolean active;
 
-	public US15_ObjectPojo() {
+	public MeetGetStudentsPojo() {
 	}
 
-	public US15_ObjectPojo(int id, String username, String ssn, String name, String surname, String birthDay, String birthPlace, String phoneNumber, String gender, String motherName, String fatherName, int studentNumber, int advisorTeacherId, String advisorTeacherName, String advisorTeacherSurname, String advisorTeacherEmail, String email, boolean active) {
+	public MeetGetStudentsPojo(int id, String username, String ssn, String name, String surname, String birthDay, String birthPlace, String phoneNumber, String gender, String motherName, String fatherName, int studentNumber, String email, boolean active) {
 		this.id = id;
 		this.username = username;
 		this.ssn = ssn;
@@ -40,10 +34,6 @@ public class US15_ObjectPojo implements Serializable {
 		this.motherName = motherName;
 		this.fatherName = fatherName;
 		this.studentNumber = studentNumber;
-		this.advisorTeacherId = advisorTeacherId;
-		this.advisorTeacherName = advisorTeacherName;
-		this.advisorTeacherSurname = advisorTeacherSurname;
-		this.advisorTeacherEmail = advisorTeacherEmail;
 		this.email = email;
 		this.active = active;
 	}
@@ -144,38 +134,6 @@ public class US15_ObjectPojo implements Serializable {
 		return studentNumber;
 	}
 
-	public void setAdvisorTeacherId(int advisorTeacherId){
-		this.advisorTeacherId = advisorTeacherId;
-	}
-
-	public int getAdvisorTeacherId(){
-		return advisorTeacherId;
-	}
-
-	public void setAdvisorTeacherName(String advisorTeacherName){
-		this.advisorTeacherName = advisorTeacherName;
-	}
-
-	public String getAdvisorTeacherName(){
-		return advisorTeacherName;
-	}
-
-	public void setAdvisorTeacherSurname(String advisorTeacherSurname){
-		this.advisorTeacherSurname = advisorTeacherSurname;
-	}
-
-	public String getAdvisorTeacherSurname(){
-		return advisorTeacherSurname;
-	}
-
-	public void setAdvisorTeacherEmail(String advisorTeacherEmail){
-		this.advisorTeacherEmail = advisorTeacherEmail;
-	}
-
-	public String getAdvisorTeacherEmail(){
-		return advisorTeacherEmail;
-	}
-
 	public void setEmail(String email){
 		this.email = email;
 	}
@@ -195,7 +153,7 @@ public class US15_ObjectPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ObjectPojo_US_03{" +
+			"StudentsPojo{" + 
 			"id = '" + id + '\'' + 
 			",username = '" + username + '\'' + 
 			",ssn = '" + ssn + '\'' + 
@@ -208,10 +166,6 @@ public class US15_ObjectPojo implements Serializable {
 			",motherName = '" + motherName + '\'' + 
 			",fatherName = '" + fatherName + '\'' + 
 			",studentNumber = '" + studentNumber + '\'' + 
-			",advisorTeacherId = '" + advisorTeacherId + '\'' + 
-			",advisorTeacherName = '" + advisorTeacherName + '\'' + 
-			",advisorTeacherSurname = '" + advisorTeacherSurname + '\'' + 
-			",advisorTeacherEmail = '" + advisorTeacherEmail + '\'' + 
 			",email = '" + email + '\'' + 
 			",active = '" + active + '\'' + 
 			"}";
