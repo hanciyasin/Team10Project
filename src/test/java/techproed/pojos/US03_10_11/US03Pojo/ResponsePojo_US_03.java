@@ -1,6 +1,8 @@
 package techproed.pojos.US03_10_11.US03Pojo;
 
-public class ResponsePojo_US_03 {
+import java.io.Serializable;
+
+public class ResponsePojo_US_03 implements Serializable {
     // 1. Private variable'lar olusturulur
     private String httpStatus;
     private String message;

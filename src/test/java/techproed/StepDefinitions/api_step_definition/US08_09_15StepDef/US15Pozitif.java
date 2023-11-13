@@ -24,9 +24,10 @@ public class US15Pozitif {
 
     public static US15_ResponsePojo expectedData;
     US15_PozitifPojo payload;
+
     Response response;
     US15_ResponsePojo actualData;
-    DeletePojo actualData2;
+
     public static int studentidUS15;
     public static US15_ObjectPojo object;
 
@@ -89,15 +90,14 @@ public class US15Pozitif {
         JsonPath json2 = response.jsonPath();
         List<Integer> studNumberList = json2.getList("findAll{it.username=='Student10Team'}.studentNumber");
         StudNmbr = studNumberList.get(0);
-        System.out.println(StudNmbr);
-
-
     }
+
     @And("getStudentById icin URL duzenlenir")
     public void getstudentbyıdIcinURLDuzenlenir() {
         //https://managementonschools.com/app/students/getStudentById?id=2222
         setUp(ConfigReader.getProperty("VDUserName"),ConfigReader.getProperty("VDPassword"));
         spec.pathParams("first","students","second","getStudentById").queryParam("id",studentidUS15);
+
     }
 
     @And("getStudentById icin beklenen veriler duzenlenir")

@@ -15,8 +15,8 @@ rerun plugin'i sayesinde fail olan scenariolarımızı yolunu belirttiğimiz .tx
         features = "src/test/resources", //features package'ının yolu (content root)
 
         glue = {"techproed/StepDefinitions","techproed/Hooks"}, //stepDefinitions package ismi
-
         tags = "", //Hangi scenarioları bu tag ıle belirtirsek o scenariolar çalışır
+
         dryRun = false //true seçersek scenariolari kontrol eder browser'ı çalıştırmaz
         //monochrome = true//-->true kullanırsak konsoldaki çıktıları tek renk(siyah) olarak verir
 )
