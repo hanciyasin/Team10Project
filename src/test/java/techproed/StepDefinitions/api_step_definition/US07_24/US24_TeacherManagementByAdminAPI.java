@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import techproed.base_url.ManagementonSchoolsBaseUrl;
 import techproed.pojos.US07_24.US24.US24_ObjectPojo;
 import techproed.pojos.US07_24.US24.US24_ResponsePojo;
 import techproed.pojos.US07_24.US24.US24_TeacherPostPojoByAdmin;
@@ -32,6 +33,7 @@ public class US24_TeacherManagementByAdminAPI {
         lessonIdList().add("1869");
         return lessonIdList();
     }
+
 
 
 
