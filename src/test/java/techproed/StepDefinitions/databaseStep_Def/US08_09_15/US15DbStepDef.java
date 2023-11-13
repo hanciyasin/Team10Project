@@ -1,4 +1,4 @@
-package techproed.StepDefinitions.databaseStep_Def;
+package techproed.StepDefinitions.databaseStep_Def.US08_09_15;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -39,6 +39,7 @@ public class US15DbStepDef {
         assertEquals(object.getPhoneNumber(),resultset.getString("phone_number"));
         assertEquals(object.getBirthDay(),resultset.getString("birth_day"));
         assertEquals(object.getBirthPlace(),resultset.getString("birth_place"));
+
 
     }
 }
