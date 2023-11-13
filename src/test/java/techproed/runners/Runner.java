@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         /*
 rerun plugin'i sayesinde fail olan scenariolarımızı yolunu belirttiğimiz .txt dosya için tutacaktır
  */
-        features = "src/test/resources", //features package'ının yolu (content root)
+        features = "src/test/resources/features/API_Test/", //features package'ının yolu (content root)
 
         glue = {"techproed/StepDefinitions","techproed/Hooks"}, //stepDefinitions package ismi
         tags = "", //Hangi scenarioları bu tag ıle belirtirsek o scenariolar çalışır
