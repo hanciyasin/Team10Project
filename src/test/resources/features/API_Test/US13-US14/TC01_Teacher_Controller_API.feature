@@ -1,9 +1,10 @@
 @API_TC01
-  Feature: Teachers Controller
-    Scenario: Vice Dean olarak teacher olusturma testi
-      Given Teacher kaydetmek icin URL duzenlenir
-      Then Teacher kaydi icin payload duzenlenir
-      When Teacher kaydi icin Post request gonderilir ve response alinir
-      Then status codun 200 oldugu dogrulanir
-      And Teacher kaydi icin gelen response body dogrulanir
+Feature: Vice Dean Ogretmen olusturma
 
+  Scenario: US13-API  Vice Dean Teacher i basarili bir sekilde ekleyebilmeli
+    Given Teacher eklemek icin Post request hazirligi yapilir.
+    And Gonderilecek Teacher bilgileri hazirlanir.
+    When Teacher eklemek icin Post request gonderilir.
+    Then Teacher bilgileri dogrulanir.
+    Then kullanici olusturulan Teacheri update eder
+    #Then kullanici olusturulan Teacheri siler.
