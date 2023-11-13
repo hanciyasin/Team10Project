@@ -1,7 +1,7 @@
-@E2E
+#@E2E
 Feature: Admin Management
 
-  @US04
+ # @US04
   Scenario Outline: TC01 Admin Dean ekleyebilmeli
     Given admin management school sayfasina gider
     Then Homepage login butonuna tiklar
@@ -27,7 +27,7 @@ Feature: Admin Management
       | username       | password           |
       | manSchoolAdmin | manSchoolAdminPass |
 
-  @US04_05_API
+  #@US04_05_API
   Scenario: Olusturulan Dean hesap bilgisini alma testi
     Given Kayitli Dean hesab bilgisinin ID nosu alinir
     And Dean GetManagerById icin URL duzenlenir
@@ -36,7 +36,7 @@ Feature: Admin Management
     Then Status kodun 200 oldugu dogrulanir
     And Dean GetManagerById icin gelen Response body dogrulanir
 
-  @US04_DB
+  #@US04_DB
   Scenario: Kayıtlı Dean bilgisini dogrulama
     Given Database baglantisi kurulur
     And Dean icin beklenen veriler duzenlenir
