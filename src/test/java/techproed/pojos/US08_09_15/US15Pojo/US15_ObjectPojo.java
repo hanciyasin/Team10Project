@@ -1,11 +1,12 @@
 package techproed.pojos.US08_09_15.US15Pojo;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import java.io.Serializable;
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class US15_ObjectPojo implements Serializable {
-	private int id;
+
+	public static int id;
 	private String username;
 	private String ssn;
 	private String name;
@@ -52,7 +53,7 @@ public class US15_ObjectPojo implements Serializable {
 		this.id = id;
 	}
 
-	public int getId(){
+	public static int getId(){
 		return id;
 	}
 

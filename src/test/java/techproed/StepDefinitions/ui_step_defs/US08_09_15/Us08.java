@@ -82,7 +82,7 @@ public class Us08 {
 
     @Given("lesson name i yaz")
     public void lessonNameIYaz() {
-        myPage.lessonName.sendKeys(faker.name().lastName()+"Ee",Keys.TAB,Keys.TAB,faker.number().digits(1));
+        myPage.lessonName.sendKeys(faker.name().lastName()+"EeAa",Keys.TAB,Keys.TAB,faker.number().digits(1));
 
     }
 
@@ -309,6 +309,12 @@ public class Us08 {
     public void kayitDogrulanir() {
         assertTrue(myPage.studentAlert.getText().
                 contains("Student saved Successfully"));
+
+    }
+
+    @Then("lesson name ve credit Score'i yaz")
+    public void lessonNameVeCreditScoreIYaz() {
+        myPage.lessonName.sendKeys(ConfigReader.getProperty("ders"),Keys.TAB,Keys.TAB,faker.number().digits(1));
 
     }
 }
