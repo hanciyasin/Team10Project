@@ -33,8 +33,8 @@ public class US_12 {
     @Given("Gonderilecek Lesson Program bilgileri hazirlar")
     public void gonderilecek_lesson_program_bilgileri_hazirlar() {
         lessonIdList = new ArrayList<>();
-        lessonIdList.add(1186);
-        expectedDataPost = new LessonProgramPojo("THURSDAY", 1, lessonIdList, "00:00", "01:00");
+        lessonIdList.add(2118);
+        expectedDataPost = new LessonProgramPojo("WEDNESDAY", 15, lessonIdList, "08:30", "11:30");
     }
     @When("Lesson Program eklemek icin Post request gonderir")
     public void lesson_program_eklemek_icin_post_request_gonderir() {
@@ -61,7 +61,7 @@ public class US_12 {
 
     @Given("Kayitli lesson Program  verisinin delete request hazirligi yapilir")
     public void kayitli_lesson_program_verisinin_get_request_hazirligi_yapilir() {
-        setUp("ViceDeanTeam15", "ViceDeanTeam15");
+        setUp("Iskaya33", "Akaya0133");
         spec.pathParams("first", "lessonPrograms", "second", "delete", "third", lessonProgramId);
 
     }

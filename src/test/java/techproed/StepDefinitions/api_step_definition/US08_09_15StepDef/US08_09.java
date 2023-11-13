@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.openqa.selenium.WebElement;
 import techproed.pojos.US08_09_15.Us08Pojo.US08_LessonsPojo;
@@ -28,6 +29,7 @@ public class US08_09 {
     US08_ResponsePojo actualData;
     public static String bylessonid;
     public static int lessonId;
+    public int dersId;
 
 
     @Given("lesson save icin url duzenlenir")
@@ -91,7 +93,12 @@ public class US08_09 {
         setUp(ConfigReader.getProperty("VDUserName"), ConfigReader.getProperty("VDPassword"));
         spec.pathParams("first", "lessons", "second", "getAll");
         response = given(spec).when().get("{first}/{second}");
-        System.out.println("Ders listeleri alındı");
+        response.prettyPrint();
+        JsonPath json = response.jsonPath();
+        List<Integer> dersAdi = json.getList("findAll{it.lessonName==''}.lessonId");
+           dersId = dersAdi.get(0);
+
+
     }
 
 
@@ -104,6 +111,8 @@ public class US08_09 {
         response = given(spec).when().get("{first}/{second}");
         response.prettyPrint();
 
+
+
     }
 
     @Given("lesson name ile ders kontrol edilir")
@@ -114,5 +123,16 @@ public class US08_09 {
         spec.pathParams("first", "lessons", "second","getLessonByName").queryParam("lessonName","sosyolojii");
         response = given(spec).when().get("{first}/{second}");
         response.prettyPrint();
+    }
+
+    @And("lesson id ile ders kontrolu yapilir")
+    public void lessonIdIleDersKontroluYapilir() {
+        ReusableMethods.bekle(1);
+        //https://managementonschools.com/app/lessons/getAllLessonByLessonId?lessonId=1255
+        setUp(ConfigReader.getProperty("VDUserName"), ConfigReader.getProperty("VDPassword"));
+        spec.pathParams("first", "lessons", "second","getAllLessonByLessonId").queryParam("lessonId",dersId);
+        response = given(spec).when().get("{first}/{second}");
+        response.prettyPrint();
+        assertEquals("TeamOnDers",payload.getLessonName());
     }
 }
