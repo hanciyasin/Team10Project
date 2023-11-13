@@ -14,7 +14,6 @@ public class LessonProgramPostPojo implements Serializable {
         "stopTime": "HH:mm"
     }
      */
-
     // 1. Private variable'lar olusturulur
     private String day;
     private String educationTermId;
@@ -23,10 +22,8 @@ public class LessonProgramPostPojo implements Serializable {
     private String stopTime;
 
     //2. Parametreli ve parametresiz constructor'lari olustur
-
     public LessonProgramPostPojo() {
     }
-
     public LessonProgramPostPojo(String day, String educationTermId, Integer lessonIdList, String startTime, String stopTime) {
         this.day = day;
         this.educationTermId = educationTermId;
@@ -34,52 +31,40 @@ public class LessonProgramPostPojo implements Serializable {
         this.startTime = startTime;
         this.stopTime = stopTime;
     }
-    // 3. Public getter ve setter methodlarini olustur
 
+    // 3. Public getter ve setter methodlarini olustur
     public String getDay() {
         return day;
     }
-
     public void setDay(String day) {
         this.day = day;
     }
-
     public String getEducationTermId() {
         return educationTermId;
     }
-
     public void setEducationTermId(String educationTermId) {
         this.educationTermId = educationTermId;
     }
-
     public Integer getLessonIdList() {
         return lessonIdList;
     }
-
     public void setLessonIdList(Integer lessonIdList) {
         this.lessonIdList = lessonIdList;
     }
-
     public String getStartTime() {
         return startTime;
     }
-
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
-
     public String getStopTime() {
         return stopTime;
     }
-
     public void setStopTime(String stopTime) {
         this.stopTime = stopTime;
     }
 
-
     // 4. toString methodunu olustur
-
-
     @Override
     public String toString() {
         return "LessonProgramPostPojo{" +
