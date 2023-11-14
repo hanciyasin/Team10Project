@@ -25,8 +25,6 @@ public class DeanManagementDB {
     DeanPostPojo payloadDb;
     Response response1;
 
-
-
     @Given("Database baglantisi kurulur")
     public void databaseBaglantisiKurulur() throws SQLException {
         connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
