@@ -1,6 +1,7 @@
 package techproed.pojos.US03_10_11.US10Pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class LessonProgramPostPojo implements Serializable {
     /*
@@ -17,14 +18,14 @@ public class LessonProgramPostPojo implements Serializable {
     // 1. Private variable'lar olusturulur
     private String day;
     private String educationTermId;
-    private Integer lessonIdList;
+    private List<String> lessonIdList;
     private String startTime;
     private String stopTime;
 
     //2. Parametreli ve parametresiz constructor'lari olustur
     public LessonProgramPostPojo() {
     }
-    public LessonProgramPostPojo(String day, String educationTermId, Integer lessonIdList, String startTime, String stopTime) {
+    public LessonProgramPostPojo(String day, String educationTermId, List<String> lessonIdList, String startTime, String stopTime) {
         this.day = day;
         this.educationTermId = educationTermId;
         this.lessonIdList = lessonIdList;
@@ -45,10 +46,10 @@ public class LessonProgramPostPojo implements Serializable {
     public void setEducationTermId(String educationTermId) {
         this.educationTermId = educationTermId;
     }
-    public Integer getLessonIdList() {
+    public List<String> getLessonIdList() {
         return lessonIdList;
     }
-    public void setLessonIdList(Integer lessonIdList) {
+    public void setLessonIdList(List<String> lessonIdList) {
         this.lessonIdList = lessonIdList;
     }
     public String getStartTime() {
