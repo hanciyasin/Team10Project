@@ -7,19 +7,19 @@ Feature: Student_Info_Management Meet Management
     Then Gelen Status kodun 200 oldugu dogrulanir
     And Meet olusturma icin gelen Response body dogrulanir
 
- # Scenario: GetMeet testi
-    #Given GetMeetID icin URL duzenlenir
-    #And GetMeetID icin beklenen veriler olusturulur
-    #When GetMeetID icin POST Request gonderilir ve Reponse alinir
-    #Then Gelen Status kodun 200 oldugu dogrulanir
-    #And Verilen randevunun goruldugu dogrulanir
-
-# Scenario: Teacher in olusturulan meet i guncelleyebilmesi testi
-#   Given Meet guncelleme icin URL düzenlenir
-#   And Meet guncelleme icin payload duzenlenir
-#   When Meet guncelleme icin POST Request gonderilir ve Reponse alinir
+# Scenario: GetMeet testi
+#   Given GetMeetID icin URL duzenlenir
+#   And GetMeetID icin beklenen veriler olusturulur
+#   When GetMeetID icin POST Request gonderilir ve Reponse alinir
 #   Then Gelen Status kodun 200 oldugu dogrulanir
-#   #And Meet guncelleme icin gelen Response body dogrulanir
+#   And Verilen randevunun goruldugu dogrulanir
+
+Scenario: Teacher in olusturulan meet i guncelleyebilmesi testi
+  Given Meet guncelleme icin URL düzenlenir
+  And Meet guncelleme icin payload duzenlenir
+  When Meet guncelleme icin POST Request gonderilir ve Reponse alinir
+  Then Gelen Status kodun 200 oldugu dogrulanir
+  And Meet guncelleme icin gelen Response body dogrulanir
 
 
   Scenario: Teacher kullanicisi meet i silebilir
