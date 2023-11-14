@@ -13,9 +13,8 @@ import org.junit.runner.RunWith;
 rerun plugin'i sayesinde fail olan scenariolarımızı yolunu belirttiğimiz .txt dosya için tutacaktır
  */
         features = "src/test/resources", //features package'ının yolu (content root)
-
         glue = {"techproed/StepDefinitions","techproed/Hooks"}, //stepDefinitions package ismi
-        tags = "@US15", //Hangi scenarioları bu tag ıle belirtirsek o scenariolar çalışır
+        tags = "", //Hangi scenarioları bu tag ıle belirtirsek o scenariolar çalışır
 
         dryRun = false  //true seçersek scenariolari kontrol eder browser'ı çalıştırmaz
         //monochrome = true//-->true kullanırsak konsoldaki çıktıları tek renk(siyah) olarak verir

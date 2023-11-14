@@ -7,6 +7,15 @@ public class MeetSaveResponsePojo implements Serializable {
 	private String message;
 	private String httpStatus;
 
+	public MeetSaveResponsePojo() {
+	}
+
+	public MeetSaveResponsePojo(MeetSaveObjectPojo object, String message, String httpStatus) {
+		this.object = object;
+		this.message = message;
+		this.httpStatus = httpStatus;
+	}
+
 	public void setObject(MeetSaveObjectPojo object){
 		this.object = object;
 	}
