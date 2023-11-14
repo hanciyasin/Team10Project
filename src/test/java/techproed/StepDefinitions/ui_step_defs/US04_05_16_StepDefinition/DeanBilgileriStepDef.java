@@ -16,7 +16,6 @@ public class DeanBilgileriStepDef {
 
     AdminManagementPage adminManagementPage = new AdminManagementPage();
     public static Faker faker = new Faker();
-
     public static String fakeName = faker.lorem().word();
     public static String fakeSurName = faker.lorem().word();
     public static String fakeBirtPlace = faker.lorem().word();

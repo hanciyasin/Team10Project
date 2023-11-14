@@ -33,8 +33,6 @@ public class ViceDeanContMess_DB {
         response2.prettyPrint();
     }
 
-
-
     @When("Kayitli Vice Dean hesap bilgisini almak icin Query gonderilir")
     public void kayitliViceDeanHesapBilgisiniAlmakIcinQueryGonderilir() throws SQLException {
         statement = connection.createStatement();

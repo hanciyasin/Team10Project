@@ -1,13 +1,9 @@
-package techproed.pojos.US13_US14;
+package techproed.pojos.US07_24.US24.PostTeacherSave;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.io.Serializable;
 import java.util.List;
+import java.io.Serializable;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class TeacherInfoPostPojo implements Serializable {
+public class TeacherPostPojo implements Serializable {
 	private String birthDay;
 	private String birthPlace;
 	private String email;
@@ -20,6 +16,24 @@ public class TeacherInfoPostPojo implements Serializable {
 	private String ssn;
 	private String surname;
 	private String username;
+
+	public TeacherPostPojo(String birthDay, String birthPlace, String email, String gender, String isAdvisorTeacher, List<String> lessonsIdList, String name, String password, String phoneNumber, String ssn, String surname, String username) {
+		this.birthDay = birthDay;
+		this.birthPlace = birthPlace;
+		this.email = email;
+		this.gender = gender;
+		this.isAdvisorTeacher = isAdvisorTeacher;
+		this.lessonsIdList = lessonsIdList;
+		this.name = name;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.ssn = ssn;
+		this.surname = surname;
+		this.username = username;
+	}
+
+	//public TeacherPostPojo() {
+//	}
 
 	public void setBirthDay(String birthDay){
 		this.birthDay = birthDay;
@@ -118,41 +132,21 @@ public class TeacherInfoPostPojo implements Serializable {
 	}
 
 	@Override
-	public String toString(){
-		return
-				"TeacherInfoPostPOJO{" +
-						"birthDay = '" + birthDay + '\'' +
-						",birthPlace = '" + birthPlace + '\'' +
-						",email = '" + email + '\'' +
-						",gender = '" + gender + '\'' +
-						",isAdvisorTeacher = '" + isAdvisorTeacher + '\'' +
-						",lessonsIdList = '" + lessonsIdList + '\'' +
-						",name = '" + name + '\'' +
-						",password = '" + password + '\'' +
-						",phoneNumber = '" + phoneNumber + '\'' +
-						",ssn = '" + ssn + '\'' +
-						",surname = '" + surname + '\'' +
-						",username = '" + username + '\'' +
-						"}";
-	}
-
-	public TeacherInfoPostPojo() {
-	}
-
-
-	public TeacherInfoPostPojo(String birthDay, String birthPlace, String email, String gender, String isAdvisorTeacher, List<String> lessonsIdList, String name, String password, String phoneNumber, String ssn, String surname, String username) {
-		this.birthDay = birthDay;
-		this.birthPlace = birthPlace;
-		this.email = email;
-		this.gender = gender;
-		this.isAdvisorTeacher = isAdvisorTeacher;
-		this.lessonsIdList = lessonsIdList;
-		this.name = name;
-		this.password = password;
-		this.phoneNumber = phoneNumber;
-		this.ssn = ssn;
-		this.surname = surname;
-		this.username = username;
-	}
-
+ 	public String toString(){
+		return 
+			"TeacherPostPojo{" + 
+			"birthDay = '" + birthDay + '\'' + 
+			",birthPlace = '" + birthPlace + '\'' + 
+			",email = '" + email + '\'' + 
+			",gender = '" + gender + '\'' + 
+			",isAdvisorTeacher = '" + isAdvisorTeacher + '\'' + 
+			",lessonsIdList = '" + lessonsIdList + '\'' + 
+			",name = '" + name + '\'' + 
+			",password = '" + password + '\'' + 
+			",phoneNumber = '" + phoneNumber + '\'' + 
+			",ssn = '" + ssn + '\'' + 
+			",surname = '" + surname + '\'' + 
+			",username = '" + username + '\'' + 
+			"}";
+		}
 }

@@ -1,4 +1,4 @@
-package techproed.pojos.US13_US14;
+package techproed.pojos.US07_24.US24.PostTeacherSave;
 
 import java.io.Serializable;
 

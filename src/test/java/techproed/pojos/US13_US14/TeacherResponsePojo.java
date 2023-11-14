@@ -12,6 +12,17 @@ public class TeacherResponsePojo implements Serializable {
     private String message;
     private String httpStatus;
 
+    public TeacherResponsePojo() {
+    }
+
+
+    public TeacherResponsePojo(ObjectPojo object, String message, String httpStatus) {
+        this.object = object;
+        this.message = message;
+        this.httpStatus = httpStatus;
+    }
+
+
     public void setObject(ObjectPojo object){
         this.object = object;
     }
@@ -46,13 +57,5 @@ public class TeacherResponsePojo implements Serializable {
                         ",httpStatus = '" + httpStatus + '\'' +
                         "}";
     }
-    public TeacherResponsePojo() {
-    }
 
-
-    public TeacherResponsePojo(ObjectPojo object, String message, String httpStatus) {
-        this.object = object;
-        this.message = message;
-        this.httpStatus = httpStatus;
-    }
 }
