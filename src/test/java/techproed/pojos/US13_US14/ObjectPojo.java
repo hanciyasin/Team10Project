@@ -1,13 +1,7 @@
-
 package techproed.pojos.US13_US14;
-
-
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ObjectPojo implements Serializable {
 	private int userId;
 	private String username;
@@ -20,6 +14,23 @@ public class ObjectPojo implements Serializable {
 	private String gender;
 	private String email;
 	private boolean advisorTeacher;
+
+	public ObjectPojo() {
+	}
+
+	public ObjectPojo(int userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender, String email, boolean advisorTeacher) {
+		this.userId = userId;
+		this.username = username;
+		this.name = name;
+		this.surname = surname;
+		this.birthDay = birthDay;
+		this.ssn = ssn;
+		this.birthPlace = birthPlace;
+		this.phoneNumber = phoneNumber;
+		this.gender = gender;
+		this.email = email;
+		this.advisorTeacher = advisorTeacher;
+	}
 
 	public void setUserId(int userId){
 		this.userId = userId;
@@ -110,37 +121,20 @@ public class ObjectPojo implements Serializable {
 	}
 
 	@Override
-	public String toString(){
-		return
-				"ObjectPOJO{" +
-						"userId = '" + userId + '\'' +
-						",username = '" + username + '\'' +
-						",name = '" + name + '\'' +
-						",surname = '" + surname + '\'' +
-						",birthDay = '" + birthDay + '\'' +
-						",ssn = '" + ssn + '\'' +
-						",birthPlace = '" + birthPlace + '\'' +
-						",phoneNumber = '" + phoneNumber + '\'' +
-						",gender = '" + gender + '\'' +
-						",email = '" + email + '\'' +
-						",advisorTeacher = '" + advisorTeacher + '\'' +
-						"}";
-	}
-
-	public ObjectPojo() {
-	}
-
-	public ObjectPojo(int userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender, String email, boolean advisorTeacher) {
-		this.userId = userId;
-		this.username = username;
-		this.name = name;
-		this.surname = surname;
-		this.birthDay = birthDay;
-		this.ssn = ssn;
-		this.birthPlace = birthPlace;
-		this.phoneNumber = phoneNumber;
-		this.gender = gender;
-		this.email = email;
-		this.advisorTeacher = advisorTeacher;
-	}
+ 	public String toString(){
+		return 
+			"ObjectPojo{" + 
+			"userId = '" + userId + '\'' + 
+			",username = '" + username + '\'' + 
+			",name = '" + name + '\'' + 
+			",surname = '" + surname + '\'' + 
+			",birthDay = '" + birthDay + '\'' + 
+			",ssn = '" + ssn + '\'' + 
+			",birthPlace = '" + birthPlace + '\'' + 
+			",phoneNumber = '" + phoneNumber + '\'' + 
+			",gender = '" + gender + '\'' + 
+			",email = '" + email + '\'' + 
+			",advisorTeacher = '" + advisorTeacher + '\'' + 
+			"}";
+		}
 }

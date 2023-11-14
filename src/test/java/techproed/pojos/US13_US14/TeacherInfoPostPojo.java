@@ -154,4 +154,5 @@ public class TeacherInfoPostPojo implements Serializable {
 		this.surname = surname;
 		this.username = username;
 	}
+
 }
