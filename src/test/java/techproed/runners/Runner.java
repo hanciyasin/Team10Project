@@ -25,3 +25,12 @@ rerun plugin'i sayesinde fail olan scenariolarımızı yolunu belirttiğimiz .tx
 
 public class Runner {
 }
+
+
+
+
+
+
+
+
+
