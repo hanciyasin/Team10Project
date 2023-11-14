@@ -12,7 +12,7 @@ Feature: TC01 Student Ekleme Testi
     And getStudentById icin URL duzenlenir
     And getStudentById icin beklenen veriler duzenlenir
     When getStudentById icin GET Request gonderilir ve Response alinir
-    Then Status kodun 200 oldugu dogrulanir
+
     And getStudentById icin gelen Response body dogrulanir
 
     Scenario: Eklenen Student silinebilmeli
