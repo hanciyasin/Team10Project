@@ -13,13 +13,28 @@ import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
 
+import java.sql.Time;
+
+import static techproed.utilities.ReusableMethods.*;
+import static techproed.utilities.ReusableMethods.oneDigitNumber;
+
 public class US07_StepDefinition {
     US07_US24 irem = new US07_US24();
     Actions actions = new Actions(Driver.getDriver());
-    Faker faker = new Faker();
+    static Faker faker = new Faker();
     String NameBox;
     String SurnameBox;
     Select select;
+
+    public static String fakeName = faker.lorem().word();
+    public static String fakeSurName = faker.lorem().word();
+    public static String fakeBirtPlace = faker.lorem().word();
+    public static String fakePhone = threeDigitNumber() + "-" + threeDigitNumber() + "-" + fourDigitNumber();
+    public static String fakeSSN = threeDigitNumber() + "-" + twoDigitNumber() + "-" + fourDigitNumber();
+    public static String fakeDate = "0" + oneDigitNumber() + "0" + oneDigitNumber() + "1986";
+    public static String fakeUserName = "Samwise"+ threeDigitNumber();
+    public static String fakeEmail = faker.lorem().word()+"@gmail.com";
+
 
     @Given("kullanici management sayfasine gider")
     public void kullaniciManagementSayfasineGider() {
