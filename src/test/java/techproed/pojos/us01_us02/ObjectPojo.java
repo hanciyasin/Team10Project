@@ -1,4 +1,4 @@
-package techproed.pojos.US13_US14;
+package techproed.pojos.us01_us02;
 
 import java.io.Serializable;
 
@@ -12,13 +12,11 @@ public class ObjectPojo implements Serializable {
 	private String birthPlace;
 	private String phoneNumber;
 	private String gender;
-	private String email;
-	private boolean advisorTeacher;
 
 	public ObjectPojo() {
 	}
 
-	public ObjectPojo(int userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender, String email, boolean advisorTeacher) {
+	public ObjectPojo(int userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender) {
 		this.userId = userId;
 		this.username = username;
 		this.name = name;
@@ -28,8 +26,6 @@ public class ObjectPojo implements Serializable {
 		this.birthPlace = birthPlace;
 		this.phoneNumber = phoneNumber;
 		this.gender = gender;
-		this.email = email;
-		this.advisorTeacher = advisorTeacher;
 	}
 
 	public void setUserId(int userId){
@@ -104,22 +100,6 @@ public class ObjectPojo implements Serializable {
 		return gender;
 	}
 
-	public void setEmail(String email){
-		this.email = email;
-	}
-
-	public String getEmail(){
-		return email;
-	}
-
-	public void setAdvisorTeacher(boolean advisorTeacher){
-		this.advisorTeacher = advisorTeacher;
-	}
-
-	public boolean isAdvisorTeacher(){
-		return advisorTeacher;
-	}
-
 	@Override
  	public String toString(){
 		return 
@@ -133,8 +113,6 @@ public class ObjectPojo implements Serializable {
 			",birthPlace = '" + birthPlace + '\'' + 
 			",phoneNumber = '" + phoneNumber + '\'' + 
 			",gender = '" + gender + '\'' + 
-			",email = '" + email + '\'' + 
-			",advisorTeacher = '" + advisorTeacher + '\'' + 
 			"}";
 		}
 }
