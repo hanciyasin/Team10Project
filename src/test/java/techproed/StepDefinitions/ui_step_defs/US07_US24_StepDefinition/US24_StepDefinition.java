@@ -13,6 +13,10 @@ import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
 
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
+
 public class US24_StepDefinition {
     US07_US24 irem = new US07_US24();
     Actions actions = new Actions(Driver.getDriver());
@@ -135,6 +139,7 @@ public class US24_StepDefinition {
         irem.iremPassword.sendKeys("123456Sg");
         ReusableMethods.waitFor(3);
     }
+
 
 
 

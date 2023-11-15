@@ -7,29 +7,38 @@ import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Sleeper;
+import techproed.StepDefinitions.ui_step_defs.US07_US24_StepDefinition.US07_StepDefinition;
 import techproed.pojos.US07_24.US24.PostTeacherSave.ObjectPojo;
 import techproed.pojos.US07_24.US24.PostTeacherSave.ResponsePojoAdminTeacherSave;
 import techproed.pojos.US07_24.US24.PostTeacherSave.TeacherPostPojo;
 import techproed.utilities.ConfigReader;
 
+import java.util.Collections;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
-public class AdminTeacherSave {
+public class AdminTeacherSave  {
     TeacherPostPojo payload;
     Response response;
     ResponsePojoAdminTeacherSave actualData;
     int userId;
     public static ObjectPojo object;
     public static ResponsePojoAdminTeacherSave expectedData;
-    public static List<String> lessonIdList(){
-        lessonIdList().add("1956");
-        lessonIdList().add("1869");
-        return lessonIdList();
+    US07_StepDefinition fakerInfo;
+
+    public static List<String>  lessonsIdList(){
+        lessonsIdList().add("1397");
+        lessonsIdList().add("1430");
+        return lessonsIdList();
+
     }
+
+
+
 
     @Given("Teacher save icin URL duzenlenir")
     public void teacherSaveIcinURLDuzenlenir() {
@@ -39,17 +48,17 @@ public class AdminTeacherSave {
 
     @And("Teacher save icin payload duzenlenir")
     public void teacherSaveIcinPayloadDuzenlenir() {
-        payload = new TeacherPostPojo("1986-03-06",
+        payload = new TeacherPostPojo(US07_StepDefinition.fakeDate,
                 "Middle Earth",
-                "samgam3@gmail.com",
+                US07_StepDefinition.fakeEmail,
                 "MALE",
-                "true",lessonIdList(),
+                "true", Collections.singletonList("1398"),
                 "Samwise",
                 "Sg1234567",
-                "345-754-5647",
-                "453-43-6536",
+                US07_StepDefinition.fakePhone,
+                US07_StepDefinition.fakeSSN,
                 "Gamgee",
-                "Samwise3");
+                US07_StepDefinition.fakeUserName);
 
     }
 
@@ -95,8 +104,18 @@ public class AdminTeacherSave {
 
     @And("Teacher GetSavedTeacherById icin beklenen veriler duzenlenir")
     public void teacherGetSavedTeacherByIdIcinBeklenenVerilerDuzenlenir() {
-        object = new ObjectPojo(userId,"Samwise","Samwise","Gamgee","1986-04-06","453-43-6534","Middle Earth","345-754-5643","MALE","samgam@gmail.com",true);
-        expectedData = new ResponsePojoAdminTeacherSave(object,"Teacher saved successfully","OK");
+        object = new ObjectPojo(userId,
+                US07_StepDefinition.fakeUserName,
+                "Samwise",
+                "Gamgee",
+                "1986-04-06",
+                US07_StepDefinition.fakeSSN,
+                "Middle Earth",
+                US07_StepDefinition.fakePhone,
+                "MALE",
+                "samgam086@gmail.com",
+                true);
+        expectedData = new ResponsePojoAdminTeacherSave(object,"Teacher saved successfully","CREATED");
 
     }
 
@@ -118,5 +137,12 @@ public class AdminTeacherSave {
         Assert.assertEquals(object.getBirthDay(),actualData.getObject().getBirthDay());
         Assert.assertEquals(object.getBirthPlace(),actualData.getObject().getBirthPlace());
         Assert.assertEquals(object.getPhoneNumber(),actualData.getObject().getPhoneNumber());
+    }
+    @Then("kullanici olusturulan Teacheri siler.")
+    public void kullaniciOlusturulanTeacheriSiler() {
+        spec.pathParams("first","teachers","second","delete","third",userId);
+        response = given(spec).when().delete("{first}/{second}/{third}");
+        Assert.assertEquals(200, response.statusCode());
+        response.prettyPrint();
     }
 }
