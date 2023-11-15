@@ -22,9 +22,10 @@ import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 public class Student_Info_Management {
 
     SaveStudentInfoSavePojo payload;
-   public static Response response;
+
+    public static Response response;
     SaveResponsePojo actualData;
-    private static int userId;
+    static int userId;
     GetStudentResponsePojo g1;
     GetResponsePojo g2;
     GetResponsePojo actualData2;
@@ -42,7 +43,7 @@ public class Student_Info_Management {
 
    public static int meetId;
 
-    static List<String> stdid;
+    public static List<String> stdid;
 
     MeetSaveResponsePojo act;
     MeetGetResponsePojo h1;
@@ -54,7 +55,7 @@ public class Student_Info_Management {
     DeleteMeetResponsePojo deleteMeet;
 
     MeetGetObjectPojo getObject;
-    MeetSaveObjectPojo actualData5;
+    MeetUpdateResponsePojo actualData5;
 
 
     //-------------------NOT VERME SAVE---------------------//
@@ -69,7 +70,7 @@ public class Student_Info_Management {
     @And("Not verme icin payload duzenlenir")
     public void notVermeIcinPayloadDuzenlenir() {
 
-        payload = new SaveStudentInfoSavePojo(5,15,85,"Basarilidir",1863,75,2046);
+        payload = new SaveStudentInfoSavePojo(5,15,85.0,"Basarilidir",1863,75.0,2046);
     }
     @When("Not verme icin POST Request gonderilir ve Reponse alinir")
     public void notVermeIcinPOSTRequestGonderilirVeReponseAlinir() {
@@ -218,7 +219,7 @@ public class Student_Info_Management {
         response.prettyPrint();
         act = response.as(MeetSaveResponsePojo.class);
 
-       int meetId = act.getObject().getId();
+       meetId = act.getObject().getId();
        System.out.println(meetId);
     }
     @And("Meet olusturma icin gelen Response body dogrulanir")
@@ -241,18 +242,18 @@ public class Student_Info_Management {
     }
     @And("GetMeetID icin beklenen veriler olusturulur")
     public void getmeetıdIcinBeklenenVerilerOlusturulur() {
+         getObject = new MeetGetObjectPojo();
 
-       getObject = new MeetGetObjectPojo();
-        h2 = new MeetGetStudentsPojo(2046,"harryPotter","543-30-7643","Harry","Potter","1991-03-07","New York","333-665-9854","MALE","Lilly","James",1216,"harry.potter@hogwarts.edu.usa",true);
-        h3 = new MeetGetObjectPojo(1461,"Randevu Verildi","2023-11-30","11:30:00","12:30:00",1261,"Gulcan","125-14-1256", (List<MeetGetStudentsPojo>) h2);
-        h1 = new MeetGetResponsePojo(h3,"Meet successfully found","CREATED");
+     //  h2 = new MeetGetStudentsPojo(2046,"harryPotter","543-30-7643","Harry","Potter","1991-03-07","New York","333-665-9854","MALE","Lilly","James",1216,"harry.potter@hogwarts.edu.usa",true);
+     //  h3 = new MeetGetObjectPojo(1461,"Randevu Verildi","2023-11-30","11:30:00","12:30:00",1261,"Gulcan","125-14-1256", (List<MeetGetStudentsPojo>) h2);
+     //  h1 = new MeetGetResponsePojo(h3,"Meet successfully found","CREATED");
     }
     @When("GetMeetID icin POST Request gonderilir ve Reponse alinir")
     public void getmeetıdIcinPOSTRequestGonderilirVeReponseAlinir() {
         response = given(spec).when().get("{first}/{second}/{third}");
         response.prettyPrint();
 
-        MeetGetResponsePojo act2 = response.as(MeetGetResponsePojo.class);
+        MeetUpdateResponsePojo act2 = response.as(MeetUpdateResponsePojo.class);
 
         System.out.println(act2.getMessage());
 
@@ -270,24 +271,31 @@ public class Student_Info_Management {
 
         setUp(ConfigReader.getProperty("glcnTeacherName"),ConfigReader.getProperty("glcnTeacherSifre"));
         //https://managementonschools.com/app/meet/update/1
+        System.out.println(meetId);
         spec.pathParams("first","meet","second","update","third",meetId);
+
     }
     @And("Meet guncelleme icin payload duzenlenir")
     public void meetGuncellemeIcinPayloadDuzenlenir() {
+
          payloadMeetUpdate = new MeetUpdateBodyResponsePojo("2023-12-01","Guncellendi","10:00","10:30",stdid);
     }
     @When("Meet guncelleme icin POST Request gonderilir ve Reponse alinir")
     public void meetGuncellemeIcinPOSTRequestGonderilirVeReponseAlinir() {
         response = given(spec).body(payloadMeetUpdate).when().put("{first}/{second}/{third}");
         response.prettyPrint();
-        actualData5 = response.as(MeetSaveObjectPojo.class);
+
+      //  MeetUpdateObjectPojo objectMeet = new MeetUpdateObjectPojo();
+      //  MeetUpdateResponsePojo beklenenMeet = new MeetUpdateResponsePojo(objectMeet,"Meet Updated Successfully","OK");
+        actualData5 = response.as(MeetUpdateResponsePojo.class);
     }
     @And("Meet guncelleme icin gelen Response body dogrulanir")
     public void meetGuncellemeIcinGelenResponseBodyDogrulanir() {
-       assertEquals(actualData5.getDate(),payloadMeetUpdate.getDate());
-       assertEquals(actualData5.getStartTime(),payloadMeetUpdate.getStartTime());
-       assertEquals(actualData5.getStopTime(),payloadMeetUpdate.getStopTime());
-       assertEquals(actualData5.getDescription(),payloadMeetUpdate.getDescription());
+     assertEquals(actualData5.getObject().getDate(),payloadMeetUpdate.getDate());
+     assertEquals(actualData5.getObject().getStartTime(),payloadMeetUpdate.getStartTime());
+     assertEquals(actualData5.getObject().getStopTime(),payloadMeetUpdate.getStopTime());
+     assertEquals(actualData5.getObject().getDescription(),payloadMeetUpdate.getDescription());
+
     }
 
     //-----------------------MEET DELETE---------------------//
@@ -315,5 +323,6 @@ public class Student_Info_Management {
     public void meetSilmeIcinGelenResponseBodyDogrulanir() {
         assertEquals(deleteMeet.getMessage(),actualDeleteMeetData.getMessage());
         assertEquals(deleteMeet.getHttpStatus(),actualDeleteMeetData.getHttpStatus());
+
     }
 }
