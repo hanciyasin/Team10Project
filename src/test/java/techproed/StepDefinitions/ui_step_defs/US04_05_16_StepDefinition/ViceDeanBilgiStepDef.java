@@ -35,5 +35,7 @@ public class ViceDeanBilgiStepDef {
     public void messageBilgisiGorunur() {
         assertTrue(viceDeanManagementPage.viceDeanContactMessMessageDd.isDisplayed());
     }
-
+/*
+//
+ */
 }

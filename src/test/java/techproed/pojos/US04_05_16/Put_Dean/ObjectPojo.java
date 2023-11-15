@@ -13,6 +13,9 @@ public class ObjectPojo implements Serializable {
 	private int userId;
 	private String username;
 
+	public ObjectPojo() {
+	}
+
 	public void setBirthDay(String birthDay){
 		this.birthDay = birthDay;
 	}
