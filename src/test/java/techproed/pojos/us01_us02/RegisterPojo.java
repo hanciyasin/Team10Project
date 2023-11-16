@@ -3,15 +3,15 @@ package techproed.pojos.us01_us02;
 import java.io.Serializable;
 
 public class RegisterPojo implements Serializable {
-	private String birthDay;
-	private String birthPlace;
+	private static String birthDay;
+	private static String birthPlace;
 	private String gender;
-	private String name;
+	private static String name;
 	private String password;
-	private String phoneNumber;
-	private String ssn;
-	private String surname;
-	private String username;
+	private static String phoneNumber;
+	private static String ssn;
+	private static String surname;
+	private static String username;
 
 	public RegisterPojo() {
 	}
@@ -32,7 +32,7 @@ public class RegisterPojo implements Serializable {
 		this.birthDay = birthDay;
 	}
 
-	public String getBirthDay(){
+	public static String getBirthDay(){
 		return birthDay;
 	}
 
@@ -40,7 +40,7 @@ public class RegisterPojo implements Serializable {
 		this.birthPlace = birthPlace;
 	}
 
-	public String getBirthPlace(){
+	public static String getBirthPlace(){
 		return birthPlace;
 	}
 
@@ -56,7 +56,7 @@ public class RegisterPojo implements Serializable {
 		this.name = name;
 	}
 
-	public String getName(){
+	public static String getName(){
 		return name;
 	}
 
@@ -72,7 +72,7 @@ public class RegisterPojo implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getPhoneNumber(){
+	public static String getPhoneNumber(){
 		return phoneNumber;
 	}
 
@@ -80,7 +80,7 @@ public class RegisterPojo implements Serializable {
 		this.ssn = ssn;
 	}
 
-	public String getSsn(){
+	public static String getSsn(){
 		return ssn;
 	}
 
@@ -88,7 +88,7 @@ public class RegisterPojo implements Serializable {
 		this.surname = surname;
 	}
 
-	public String getSurname(){
+	public static String getSurname(){
 		return surname;
 	}
 
@@ -96,7 +96,7 @@ public class RegisterPojo implements Serializable {
 		this.username = username;
 	}
 
-	public String getUsername(){
+	public static String getUsername(){
 		return username;
 	}
 
