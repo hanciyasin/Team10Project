@@ -35,7 +35,7 @@ public class DeanGetMessage {
     public void gonderilecekMesajBilgileriGirilir() {
         expectedData = new PostMesssagePojo(
                 "samgam@gmail.com",
-                "Bazen kendi sonunu bile bilmek istemezsin ya, hani nasıl iyi olacak diye inanamazsın. Bu kadar kötülük olduktan sonra dünya nasıl eski haline dönecek? Ama sonuç olarak bu geçici bir şey, bu gölge yani. Karanlık bile bitmeli hep.",
+                "Contact Message Created Successfully",
                 "Samwise",
                 "Bakis Acisi");
     }
@@ -59,7 +59,7 @@ public class DeanGetMessage {
     @Given("Mesaj cagirmak icin get request hazirlanir")
     public void mesajCagirmakIcinGetRequestHazirlanir() {
         setUp(ConfigReader.getProperty("DeanMessageUser"),ConfigReader.getProperty("DeanMessagePass"));
-        spec.pathParams("first","contactMessages","second","searchByEmail");
+        spec.pathParams("first","contactMessages","second","searchByEmail").queryParam("email","samgam@gmail.com");
 
     }
 
@@ -72,5 +72,11 @@ public class DeanGetMessage {
 
     @Then("Mesaj infosu kontrol edilir")
     public void mesajInfosuKontrolEdilir() {
+        Assert.assertEquals(200,response.statusCode());
+        Assert.assertEquals("Samwise",actualDataGet.getContent().get(0).getName());
+        Assert.assertEquals("Bakis Acisi",actualDataGet.getContent().get(0).getSubject());
+        Assert.assertEquals("Contact Message Created Successfully",
+                actualDataGet.getContent().get(0).getMessage());
+        Assert.assertEquals("samgam@gmail.com",actualDataGet.getContent().get(0).getEmail());
     }
 }
