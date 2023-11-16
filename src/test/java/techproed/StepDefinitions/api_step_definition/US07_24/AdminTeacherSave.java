@@ -139,7 +139,8 @@ public class AdminTeacherSave  {
         Assert.assertEquals(object.getBirthPlace(),actualDataGet.getObject().getBirthPlace());
         Assert.assertEquals(object.getPhoneNumber(),actualDataGet.getObject().getPhoneNumber());
     }
-    @Then("kullanici olusturulan Teacheri siler")
+
+    //@Then("kullanici olusturulan Teacheri siler.")
     public void kullaniciOlusturulanTeacheriSiler() {
         spec.pathParams("first","teachers","second","delete","third",userId);
         response = given(spec).when().delete("{first}/{second}/{third}");
