@@ -4,7 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import techproed.pages.US04_05_16.SchoolHomePage;
 import techproed.pages.US04_05_16.ViceDeanManagementPage;
-
 import static org.junit.Assert.assertTrue;
 
 public class ViceDeanBilgiStepDef {

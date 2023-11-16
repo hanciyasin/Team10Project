@@ -6,14 +6,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import techproed.pojos.US04_05_16.DeanPostPojo;
-import techproed.pojos.US04_05_16.ObjectPojo;
 import techproed.utilities.ConfigReader;
-
 import java.sql.*;
-
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static techproed.StepDefinitions.api_step_definition.US04_05_16.DeanManagementAPI.*;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
