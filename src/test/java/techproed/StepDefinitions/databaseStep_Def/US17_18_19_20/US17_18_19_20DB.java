@@ -18,7 +18,8 @@ import static org.junit.Assert.assertTrue;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
-public class US17_18_19_20 {
+public class US17_18_19_20DB {
+
     Connection connection;
     Statement statement;
     ResultSet resultset;
@@ -41,7 +42,6 @@ public class US17_18_19_20 {
     @Given("StudentInfo Database baglantisi kurulur")
     public void studentınfoDatabaseBaglantisiKurulur() throws SQLException {
         connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
-
     }
 
     @And("StudentInfo icin beklenen veriler duzenlenir")
@@ -69,14 +69,14 @@ public class US17_18_19_20 {
         assertEquals(payload.getInfoNote(),resultset.getString("info_note"));
         assertEquals(payload.getAbsentee(),resultset.getInt("absentee"));
         assertEquals(payload.getLessonId(),resultset.getInt("lesson_lesson_id"));
-       // assertEquals(payload.getFinalExam(),resultset.getInt("final_exam"));
-       // assertEquals(payload.getMidtermExam(),resultset.getString("midterm_exam"));
+        // assertEquals(payload.getFinalExam(),resultset.getInt("final_exam"));
+        // assertEquals(payload.getMidtermExam(),resultset.getString("midterm_exam"));
         assertEquals(payload.getEducationTermId(),resultset.getInt("education_term_id"));
 
     }
 
-    @And("Database baglantisi kesilir")
-    public void databaseBaglantisiKesilir() throws SQLException {
+    @And("StudentInfo Database baglantisi kesilir")
+    public void studentınfoDatabaseBaglantisiKesilir() throws SQLException {
         setUp(ConfigReader.getProperty("glcnTeacherName"),ConfigReader.getProperty("glcnTeacherSifre"));
         //https://managementonschools.com/app/studentInfo/delete/1
         spec.pathParams("first","studentInfo","second","delete","third",userId);
@@ -86,7 +86,6 @@ public class US17_18_19_20 {
 
         statement.close();
         connection.close();
-
     }
 
     @Given("Meet Database baglantisi kurulur")
@@ -133,6 +132,5 @@ public class US17_18_19_20 {
         actualDeleteMeetData = response.as(DeleteMeetResponsePojo.class);
         statement.close();
         connection.close();
-
     }
 }

@@ -5,4 +5,4 @@ Feature: StudentInfo Bilgisi Dogrulama
     And StudentInfo icin beklenen veriler duzenlenir
     When Kayitli StudentInfo bilgisini almak icin Query gonderilir
     Then Kayitli StudentInfo bilgisi dogrulanir
-    And Database baglantisi kesilir
+    And StudentInfo Database baglantisi kesilir
