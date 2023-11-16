@@ -1,45 +1,29 @@
-package techproed.pojos.US13_US14;
+package techproed.pojos.US17_18_19_20;
 
 import java.io.Serializable;
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-@JsonIgnoreProperties (ignoreUnknown = true)
 
-public class ObjectPojo implements Serializable {
-	private int userId;
+public class MeetUpdateStudentsPojo implements Serializable {
+	private int id;
 	private String username;
+	private String ssn;
 	private String name;
 	private String surname;
 	private String birthDay;
-	private String ssn;
 	private String birthPlace;
 	private String phoneNumber;
 	private String gender;
+	private String motherName;
+	private String fatherName;
+	private int studentNumber;
 	private String email;
-	private boolean advisorTeacher;
+	private boolean active;
 
-	public ObjectPojo() {
+	public void setId(int id){
+		this.id = id;
 	}
 
-	public ObjectPojo(int userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender, String email, boolean advisorTeacher) {
-		this.userId = userId;
-		this.username = username;
-		this.name = name;
-		this.surname = surname;
-		this.birthDay = birthDay;
-		this.ssn = ssn;
-		this.birthPlace = birthPlace;
-		this.phoneNumber = phoneNumber;
-		this.gender = gender;
-		this.email = email;
-		this.advisorTeacher = advisorTeacher;
-	}
-
-	public void setUserId(int userId){
-		this.userId = userId;
-	}
-
-	public int getUserId(){
-		return userId;
+	public int getId(){
+		return id;
 	}
 
 	public void setUsername(String username){
@@ -48,6 +32,14 @@ public class ObjectPojo implements Serializable {
 
 	public String getUsername(){
 		return username;
+	}
+
+	public void setSsn(String ssn){
+		this.ssn = ssn;
+	}
+
+	public String getSsn(){
+		return ssn;
 	}
 
 	public void setName(String name){
@@ -74,14 +66,6 @@ public class ObjectPojo implements Serializable {
 		return birthDay;
 	}
 
-	public void setSsn(String ssn){
-		this.ssn = ssn;
-	}
-
-	public String getSsn(){
-		return ssn;
-	}
-
 	public void setBirthPlace(String birthPlace){
 		this.birthPlace = birthPlace;
 	}
@@ -106,6 +90,30 @@ public class ObjectPojo implements Serializable {
 		return gender;
 	}
 
+	public void setMotherName(String motherName){
+		this.motherName = motherName;
+	}
+
+	public String getMotherName(){
+		return motherName;
+	}
+
+	public void setFatherName(String fatherName){
+		this.fatherName = fatherName;
+	}
+
+	public String getFatherName(){
+		return fatherName;
+	}
+
+	public void setStudentNumber(int studentNumber){
+		this.studentNumber = studentNumber;
+	}
+
+	public int getStudentNumber(){
+		return studentNumber;
+	}
+
 	public void setEmail(String email){
 		this.email = email;
 	}
@@ -114,29 +122,32 @@ public class ObjectPojo implements Serializable {
 		return email;
 	}
 
-	public void setAdvisorTeacher(boolean advisorTeacher){
-		this.advisorTeacher = advisorTeacher;
+	public void setActive(boolean active){
+		this.active = active;
 	}
 
-	public boolean isAdvisorTeacher(){
-		return advisorTeacher;
+	public boolean isActive(){
+		return active;
 	}
 
 	@Override
  	public String toString(){
 		return 
-			"ObjectPojo{" + 
-			"userId = '" + userId + '\'' + 
+			"StudentsPojo{" + 
+			"id = '" + id + '\'' + 
 			",username = '" + username + '\'' + 
+			",ssn = '" + ssn + '\'' + 
 			",name = '" + name + '\'' + 
 			",surname = '" + surname + '\'' + 
 			",birthDay = '" + birthDay + '\'' + 
-			",ssn = '" + ssn + '\'' + 
 			",birthPlace = '" + birthPlace + '\'' + 
 			",phoneNumber = '" + phoneNumber + '\'' + 
 			",gender = '" + gender + '\'' + 
+			",motherName = '" + motherName + '\'' + 
+			",fatherName = '" + fatherName + '\'' + 
+			",studentNumber = '" + studentNumber + '\'' + 
 			",email = '" + email + '\'' + 
-			",advisorTeacher = '" + advisorTeacher + '\'' + 
+			",active = '" + active + '\'' + 
 			"}";
 		}
 }
