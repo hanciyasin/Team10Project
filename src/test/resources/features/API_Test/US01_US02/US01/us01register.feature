@@ -1,6 +1,6 @@
  @US01_API
 Feature: Register
-Scenario: Aday öğrenci  kayıt  testi
+Scenario: register etkisiyle Aday öğrenci öğrenci  oluşturma  testi
   Given REGİSTER icin URL duzenlenir
   And REGİSTER icin payload duzenlenir
   When REGİSTER POST Request gonderilir ve Reponse alinir
@@ -8,14 +8,13 @@ Scenario: Aday öğrenci  kayıt  testi
   And REGİSTER icin gelen Response body dogrulanir
 
 
-  Scenario: Olusturulan reg bilgisi guncelleme.
-    Given Kayitli Dean hesabi icin put request hazirligi yapilir.
-    And Update edilecek dean bilgileri hazirlanir
-    When Kayitli Dean id ile editlenir
-    Then Guncel Dean bilgileri dogrulanir
+  Scenario: Olusturulan  bilgileri görebilme (get)
+    Given Kayitli guestuser hesabi icin id  bilgisi alınır
+     And oluşturulan bu id için  url  düzenlenir
+    When Kayitli guestuser id ile ilgili  beklenen  veriler  düzenlenir
+    Then guesrtser için  get reguest  gönderilir  response  alınır
+    And guest  userin  respons u  dogrulanır
 
-  Scenario: Olusturulmus Dean silme
-    Given Kayitli Dean hesabi icin delete request hazirligi yapilir
-    When Kayitli Dean hesabi silinir
-    Then Status kodun 200 oldugu dogrulanir
-    Then Dean hesabi silindigi dogrulanir
+  Scenario: Olusturulmus guestuser i silme
+    Given Kayitli guestuser hesabi icin Delete icin URL duzenlenir
+    When Kayitli guestuser hesabi Delete icin DELETE Request gonderilir ve Response alinir

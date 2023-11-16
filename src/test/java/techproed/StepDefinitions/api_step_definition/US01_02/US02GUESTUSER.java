@@ -36,10 +36,12 @@ public class US02GUESTUSER {
         
     }
 
-  //  @And("GUEST USER icin payload duzenlenir")
-  //  public void guestUSERIcinPayloadDuzenlenir() {
+    @And("GUEST USER icin payload duzenlenir")
+    public void guestUSERIcinPayloadDuzenlenir() {
+
+
         
-   // }
+    }
 
     @When("GUEST USER POST Request gonderilir ve Reponse alinir")
     public void guestUSERPOSTRequestGonderilirVeReponseAlinir() {

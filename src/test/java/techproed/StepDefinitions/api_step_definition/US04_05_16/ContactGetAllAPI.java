@@ -24,6 +24,7 @@ public class ContactGetAllAPI {
     public static String emailPost;
     public static ContactGetResponsePojo actualdata;
     public static ContactGetAllGetResponse actualDataGet;
+    int userid;
 
     @Given("Mesaj eklemek icin post request hazirligi yapilir")
     public void mesajEklemekIcinPostRequestHazirligiYapilir() {
