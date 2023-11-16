@@ -1,6 +1,8 @@
 package techproed.pojos.US13_US14;
 
 import java.io.Serializable;
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties (ignoreUnknown = true)
 
 public class ObjectPojo implements Serializable {
 	private int userId;

@@ -50,8 +50,8 @@ public class US08_09 {
     public void lessonSaveIcinPOSTRequestGonderilirResponseAlinir() {
         response = given(spec).body(payload).when().post("{first}/{second}");
         response.prettyPrint();
-        lessonId = response.jsonPath().getInt("object.lessonId");
         actualData = response.as(US08_ResponsePojo.class);
+        lessonId = response.jsonPath().getInt("object.lessonId");
 
     }
 
