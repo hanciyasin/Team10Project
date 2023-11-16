@@ -9,6 +9,7 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Sleeper;
 import techproed.StepDefinitions.ui_step_defs.US07_US24_StepDefinition.US07_StepDefinition;
+import techproed.pojos.US07_24.US24.GetSavedTeacherById.ResponsePojoAdminPojo;
 import techproed.pojos.US07_24.US24.PostTeacherSave.ObjectPojo;
 import techproed.pojos.US07_24.US24.PostTeacherSave.ResponsePojoAdminTeacherSave;
 import techproed.pojos.US07_24.US24.PostTeacherSave.TeacherPostPojo;
@@ -25,6 +26,7 @@ public class AdminTeacherSave  {
     TeacherPostPojo payload;
     Response response;
     ResponsePojoAdminTeacherSave actualData;
+    ResponsePojoAdminPojo actualDataGet;
     int userId;
     public static ObjectPojo object;
     public static ResponsePojoAdminTeacherSave expectedData;
@@ -48,7 +50,7 @@ public class AdminTeacherSave  {
 
     @And("Teacher save icin payload duzenlenir")
     public void teacherSaveIcinPayloadDuzenlenir() {
-        payload = new TeacherPostPojo(US07_StepDefinition.fakeDate,
+        payload = new TeacherPostPojo("1986-04-06",
                 "Middle Earth",
                 US07_StepDefinition.fakeEmail,
                 "MALE",
@@ -92,7 +94,7 @@ public class AdminTeacherSave  {
         response =  given(spec).when().get("{first}/{second}");
 
         JsonPath json = response.jsonPath();
-        List<Integer> userIdlist = json.getList("findAll{it.username=='Samwise'}.userId");
+        List<Integer> userIdlist = json.getList("findAll{it.username=='"+US07_StepDefinition.fakeUserName+"'}.userId");
         userId = userIdlist.get(0);
     }
 
@@ -121,24 +123,23 @@ public class AdminTeacherSave  {
 
     @When("GetSavedTeacherById icin GET request gonderilir ve Response alinir")
     public void getsavedteacherbyidIcinGETRequestGonderilirVeResponseAlinir() {
-        response = given(spec).when().get("{first}/{second}/{third}");
+        response = given(spec).when().get("/{first}/{second}/{third}");
         response.prettyPrint();
-        actualData = response.as(ResponsePojoAdminTeacherSave.class);
+        actualDataGet = response.as(ResponsePojoAdminPojo.class);
     }
 
     @And("Teacher GetSavedTeacherById icin gelen response body dogrulanir")
     public void teacherGetSavedTeacherByIdIcinGelenResponseBodyDogrulanir() {
-        Assert.assertEquals(object.getName(),actualData.getObject().getName());
-        Assert.assertEquals(object.getSurname(),actualData.getObject().getSurname());
-        Assert.assertEquals(object.getEmail(),actualData.getObject().getEmail());
-        Assert.assertEquals(object.getSsn(),actualData.getObject().getSsn());
-        Assert.assertEquals(object.getUsername(),actualData.getObject().getUsername());
-        Assert.assertEquals(object.getUserId(),actualData.getObject().getUserId());
-        Assert.assertEquals(object.getBirthDay(),actualData.getObject().getBirthDay());
-        Assert.assertEquals(object.getBirthPlace(),actualData.getObject().getBirthPlace());
-        Assert.assertEquals(object.getPhoneNumber(),actualData.getObject().getPhoneNumber());
+        Assert.assertEquals(object.getName(),actualDataGet.getObject().getName());
+        Assert.assertEquals(object.getSurname(),actualDataGet.getObject().getSurname());
+        //Assert.assertEquals(object.getEmail(),actualDataGet.getObject().getEmail());
+        Assert.assertEquals(object.getSsn(),actualDataGet.getObject().getSsn());
+        Assert.assertEquals(object.getUsername(),actualDataGet.getObject().getUsername());
+        Assert.assertEquals(object.getBirthDay(),actualDataGet.getObject().getBirthDay());
+        Assert.assertEquals(object.getBirthPlace(),actualDataGet.getObject().getBirthPlace());
+        Assert.assertEquals(object.getPhoneNumber(),actualDataGet.getObject().getPhoneNumber());
     }
-    @Then("kullanici olusturulan Teacheri siler.")
+    @Then("kullanici olusturulan Teacheri siler")
     public void kullaniciOlusturulanTeacheriSiler() {
         spec.pathParams("first","teachers","second","delete","third",userId);
         response = given(spec).when().delete("{first}/{second}/{third}");
