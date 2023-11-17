@@ -5,6 +5,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
+import techproed.pojos.US07_24.US24.PostTeacherSave.TeacherPostPojo;
+import java.sql.*;
 import org.junit.Assert;
 import java.sql.*;
 
@@ -14,10 +16,10 @@ import techproed.pojos.US07_24.US24.PostTeacherSave.TeacherPostPojo;
 import techproed.utilities.ConfigReader;
 
 import java.util.Collections;
-
 import static io.restassured.RestAssured.given;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
+
 
 public class AdminTeacherSaveStepDefDB {
     Connection connection;
@@ -25,6 +27,8 @@ public class AdminTeacherSaveStepDefDB {
     ResultSet resultSet;
     TeacherPostPojo payloadDb;
     Response response24;
+
+
 
     @Given("Database baglantisi kurulur.")
     public void databaseBaglantisiKurulur() throws SQLException {
@@ -34,6 +38,20 @@ public class AdminTeacherSaveStepDefDB {
 
     @And("Teacher icin beklenen veriler duzenlenir")
     public void teacherIcinBeklenenVerilerDuzenlenir() {
+
+    }
+
+    @When("Kayitli Teacher hesab bilgisini almak icin Query gonderilir")
+    public void kayitliTeacherHesabBilgisiniAlmakIcinQueryGonderilir() {
+    }
+
+    @Then("Kayitli Teacher bilgisi dogrulanir")
+    public void kayitliTeacherBilgisiDogrulanir() {
+    }
+
+    @And("Database baglantisi kesilir.")
+    public void databaseBaglantisiKesilir() {
+
         setUp(ConfigReader.getProperty("TeacherSaveAdmin"), ConfigReader.getProperty("TeacherSaveAdminPass"));
         spec.pathParams("first","teachers","second","save");
         payloadDb = new TeacherPostPojo("1986-04-06","Middle Earth",
@@ -77,5 +95,6 @@ public class AdminTeacherSaveStepDefDB {
     public void databaseBaglantisiKesilir() throws SQLException {
         statement.close();
         connection.close();
+
     }
 }
