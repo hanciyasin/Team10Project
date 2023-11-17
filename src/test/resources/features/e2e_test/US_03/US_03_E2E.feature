@@ -1,11 +1,9 @@
 @US_03_E2E
 Feature: US03 Kullanıcılar sayfadan mesaj gönderebilmelidir. E2E TEST
 
-  Background:
+  Scenario: Kulllanıcı mesajını gönderebilmelidir..
     Given Kullanici Managementon Schools sayfasina gider
     Then Kullanici contact butonuna tiklar
-
-  Scenario: TC01 Kulllanıcı mesajını gönderebilmelidir..
     Then Kullanici name bilgisi girer
     Then Kullanici email bilgisi girer
     Then Kullanici subject bilgisi girer
