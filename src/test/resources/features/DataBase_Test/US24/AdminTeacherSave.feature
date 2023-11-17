@@ -1,3 +1,4 @@
+@US24_DB
 Feature: Teacher Bilgisi Dogrulama
   Scenario: Kayıtlı Teacher bilgisini dogrulama
     Given Database baglantisi kurulur.
