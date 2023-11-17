@@ -38,20 +38,6 @@ public class AdminTeacherSaveStepDefDB {
 
     @And("Teacher icin beklenen veriler duzenlenir")
     public void teacherIcinBeklenenVerilerDuzenlenir() {
-
-    }
-
-    @When("Kayitli Teacher hesab bilgisini almak icin Query gonderilir")
-    public void kayitliTeacherHesabBilgisiniAlmakIcinQueryGonderilir() {
-    }
-
-    @Then("Kayitli Teacher bilgisi dogrulanir")
-    public void kayitliTeacherBilgisiDogrulanir() {
-    }
-
-    @And("Database baglantisi kesilir.")
-    public void databaseBaglantisiKesilir() {
-
         setUp(ConfigReader.getProperty("TeacherSaveAdmin"), ConfigReader.getProperty("TeacherSaveAdminPass"));
         spec.pathParams("first","teachers","second","save");
         payloadDb = new TeacherPostPojo("1986-04-06","Middle Earth",
@@ -67,7 +53,10 @@ public class AdminTeacherSaveStepDefDB {
                 "LegoLas123");
         response24 = given(spec).body(payloadDb).when().post("{first}/{second}");
         response24.prettyPrint();
+
     }
+
+
 
     @When("Kayitli Teacher hesab bilgisini almak icin Query gonderilir")
     public void kayitliTeacherHesabBilgisiniAlmakIcinQueryGonderilir() throws SQLException {
