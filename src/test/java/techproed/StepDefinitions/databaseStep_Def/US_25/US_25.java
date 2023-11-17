@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static techproed.utilities.JDBC_utils.closeConnection;
 
 public class US_25 {
+    //deneme
     Connection connection;
     Statement statement;
     ResultSet resultSet;
