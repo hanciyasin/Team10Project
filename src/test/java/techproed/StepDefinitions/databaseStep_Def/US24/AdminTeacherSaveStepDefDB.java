@@ -1,4 +1,4 @@
-package techproed.StepDefinitions.databaseStep_Def.US07;
+package techproed.StepDefinitions.databaseStep_Def.US24;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,9 +15,10 @@ public class AdminTeacherSaveStepDefDB {
     ResultSet resultSet;
     TeacherPostPojo payloadDb;
     Response response24;
+    //deneme
 
     @Given("Database baglantisi kurulur.")
-    public void databaseBaglantisiKurulur() {
+    public void databaseBaglantisiKurulur() throws SQLException {
         connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
 
     }
