@@ -7,10 +7,7 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import techproed.pojos.US07_24.US24.PostTeacherSave.TeacherPostPojo;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class AdminTeacherSaveStepDefDB {
     Connection connection;
@@ -20,7 +17,7 @@ public class AdminTeacherSaveStepDefDB {
     Response response24;
 
     @Given("Database baglantisi kurulur.")
-    public void databaseBaglantisiKurulur() {
+    public void databaseBaglantisiKurulur() throws SQLException {
         connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
 
     }
