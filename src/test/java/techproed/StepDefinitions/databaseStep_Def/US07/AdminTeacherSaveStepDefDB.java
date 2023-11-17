@@ -17,7 +17,7 @@ public class AdminTeacherSaveStepDefDB {
     Response response24;
 
     @Given("Database baglantisi kurulur.")
-    public void databaseBaglantisiKurulur() throws SQLException {
+    public void databaseBaglantisiKurulur() {
         connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
 
     }
