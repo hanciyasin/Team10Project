@@ -59,7 +59,7 @@ public class US22_StepDefinition {
         payLoad = new AdminPostPojo("1987-02-15","Turkey","true","FEMALE","candan","Candan1234","513-412-5548","652-12-8194","zeki","candan3374");
 
 
-
+    //deneme111
 
     }
 
