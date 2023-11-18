@@ -1,4 +1,4 @@
-package techproed.pojos.US21_22;
+package techproed.pojos.US21_22.US_22;
 
 import java.io.Serializable;
 
