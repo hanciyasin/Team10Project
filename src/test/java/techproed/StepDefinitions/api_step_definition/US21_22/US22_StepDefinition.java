@@ -8,9 +8,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
-import techproed.pojos.US21_22.AdminPostPojo;
-import techproed.pojos.US21_22.Response22Pojo;
-import techproed.pojos.US21_22.ResponsePojo;
+import techproed.pojos.US21_22.US_22.AdminPostPojo;
+import techproed.pojos.US21_22.US_22.Response22Pojo;
 
 import java.util.HashMap;
 
