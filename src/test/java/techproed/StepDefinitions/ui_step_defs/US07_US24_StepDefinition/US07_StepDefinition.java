@@ -1,19 +1,15 @@
 package techproed.StepDefinitions.ui_step_defs.US07_US24_StepDefinition;
 
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import techproed.pages.US07_US24;
+import techproed.pages.US07_US24.US07_US24;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
-
-import java.sql.Time;
 
 import static techproed.utilities.ReusableMethods.*;
 import static techproed.utilities.ReusableMethods.oneDigitNumber;

@@ -47,14 +47,4 @@ public class US_03_API {
         assertEquals(expectedData.getSubject(), actualData.getObject().getSubject());
         assertEquals("Contact Message Created Successfully", actualData.getMessage());
     }
-
-
-
-    /*
-    host: managementonschools.com
-    port: 5432
-    database name: school_management
-    user: select_user
-    password: 43w5ijfso
-    */
 }

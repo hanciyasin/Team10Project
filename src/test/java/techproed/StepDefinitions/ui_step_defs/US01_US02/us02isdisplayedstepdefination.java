@@ -1,10 +1,9 @@
 package techproed.StepDefinitions.ui_step_defs.US01_US02;
 
 import com.github.javafaker.Faker;
-import com.sun.source.tree.AssertTree;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import techproed.pages.US01_US02;
+import techproed.pages.US01_02.US01_US02;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 

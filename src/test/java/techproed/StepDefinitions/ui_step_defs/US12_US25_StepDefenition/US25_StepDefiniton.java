@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import org.openqa.selenium.interactions.Actions;
-import techproed.pages.US12_25;
+import techproed.pages.US12_25.US12_25;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
 

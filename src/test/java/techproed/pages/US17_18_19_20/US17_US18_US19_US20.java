@@ -1,4 +1,4 @@
-package techproed.pages;
+package techproed.pages.US17_18_19_20;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

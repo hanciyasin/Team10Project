@@ -4,8 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.support.FindBy;
-import techproed.pages.US01_US02;
+import techproed.pages.US01_02.US01_US02;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 

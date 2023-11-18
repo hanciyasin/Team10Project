@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import techproed.pages.US17_US18_US19_US20;
+import techproed.pages.US17_18_19_20.US17_US18_US19_US20;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
 

@@ -8,14 +8,13 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import techproed.pages.US07_US24;
+import techproed.pages.US07_US24.US07_US24;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
 public class US24_StepDefinition {
     US07_US24 irem = new US07_US24();
