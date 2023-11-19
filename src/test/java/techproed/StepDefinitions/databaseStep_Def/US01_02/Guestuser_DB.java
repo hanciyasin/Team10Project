@@ -1,4 +1,4 @@
-package techproed.StepDefinitions;
+package techproed.StepDefinitions.databaseStep_Def.US01_02;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

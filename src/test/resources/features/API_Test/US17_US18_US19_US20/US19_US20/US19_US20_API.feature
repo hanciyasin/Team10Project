@@ -1,5 +1,6 @@
-@APIGLCN_US19_US20
+@API_US19_US20
 Feature: Student_Info_Management Meet Management
+  @API_US19_US20_Test_1
   Scenario: Teacher kullanicisi ile meet olusturma testi
     Given Meet olusturma icin URL duzenlenir
     And Meet olusturma icin payload duzenlenir
@@ -13,7 +14,7 @@ Feature: Student_Info_Management Meet Management
 #   When GetMeetID icin POST Request gonderilir ve Reponse alinir
 #   Then Gelen Status kodun 200 oldugu dogrulanir
 #   And Verilen randevunun goruldugu dogrulanir
-
+  @API_US19_US20_Test_2
 Scenario: Teacher in olusturulan meet i guncelleyebilmesi testi
   Given Meet guncelleme icin URL düzenlenir
   And Meet guncelleme icin payload duzenlenir
@@ -21,7 +22,7 @@ Scenario: Teacher in olusturulan meet i guncelleyebilmesi testi
   Then Gelen Status kodun 200 oldugu dogrulanir
   And Meet guncelleme icin gelen Response body dogrulanir
 
-
+  @API_US19_US20_Test_3
   Scenario: Teacher kullanicisi meet i silebilir
     Given Meet silme icin URL düzenlenir
     And Meet silme icin beklenen veriler olusturulur

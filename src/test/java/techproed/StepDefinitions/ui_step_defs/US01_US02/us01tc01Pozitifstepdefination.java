@@ -2,8 +2,7 @@ package techproed.StepDefinitions.ui_step_defs.US01_US02;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Keys;
-import techproed.pages.US01_US02;
+import techproed.pages.US01_02.US01_US02;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
