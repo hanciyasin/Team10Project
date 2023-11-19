@@ -7,11 +7,13 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import techproed.pojos.US03_10_11.US10Pojo.LessonProgramPostPojo;
 import techproed.pojos.US03_10_11.US10Pojo.LessonProgramResponsePojo;
+import techproed.utilities.ConfigReader;
 
 import java.util.Collections;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
 public class US_10_API {
@@ -22,6 +24,7 @@ public class US_10_API {
 
     @Given("Lesson Program save icin URL duzenlenir")
     public void lessonProgramSaveUrl() {
+        setUp(ConfigReader.getProperty("VDUserName"),ConfigReader.getProperty("VDPassword"));
         spec.pathParams("first", "contactMessages", "second", "save");
     }
 

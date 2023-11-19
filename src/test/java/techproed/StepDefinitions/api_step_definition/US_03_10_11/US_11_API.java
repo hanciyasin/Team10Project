@@ -10,11 +10,13 @@ import techproed.pojos.US03_10_11.US10Pojo.LessonProgramResponsePojo;
 import techproed.pojos.US03_10_11.US11Pojo.LessonProgramDeletePojo;
 import techproed.pojos.US03_10_11.US11Pojo.LessonProgramDeleteResponse;
 import techproed.pojos.US12_25.US_12.LessonProgramPojo;
+import techproed.utilities.ConfigReader;
 
 import java.util.*;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static techproed.base_url.ManagementonSchoolsBaseUrl.setUp;
 import static techproed.base_url.ManagementonSchoolsBaseUrl.spec;
 
 public class US_11_API {
@@ -27,6 +29,7 @@ public class US_11_API {
 
     @Given("Lesson Program Get icin Url duzenlenir")
     public void lessonProgramGetUrl() {
+        setUp(ConfigReader.getProperty("VDUserName"),ConfigReader.getProperty("VDPassword"));
         spec.pathParams("first", "lessonPrograms", "second", "save");
     }
 
